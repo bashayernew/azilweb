@@ -1,0 +1,190 @@
+/* ============================================
+   Design System - شركة الحمرا سي آي
+   RED-DOMINANT BRAND (Logo: Red, Black, Neutral)
+   70% neutral | 25% red | 5% emphasis
+   ============================================ */
+
+:root {
+  /* Neutrals */
+  --color-bg: #FAFAF9;
+  --color-bg-alt: #F5F5F4;
+  --color-bg-card: #FFFFFF;
+  --color-text: #1C1917;
+  --color-text-muted: #57534E;
+  --color-text-light: #78716C;
+  
+  /* Primary - Deep Professional Red (logo) */
+  --color-primary: #C1121F;
+  --color-primary-dark: #9B0E18;
+  --color-primary-light: #D61F2E;
+
+  /* Secondary - Black / near-black (logo strength) */
+  --color-secondary: #0D0D0D;
+  --color-secondary-light: #1A1A1A;
+
+  /* Accent - Red for CTAs, links, highlights */
+  --color-accent: #C1121F;
+  --color-accent-light: #E63950;
+  --color-accent-dark: #9B0E18;
+
+  /* Neutral accent - subtle beige (logo stippled tone) */
+  --color-neutral-accent: #A8A29E;
+  
+  /* Semantic */
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  
+  /* Borders & Shadows */
+  --color-border: #E7E5E4;
+  --color-border-light: #F5F5F4;
+  --shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(28, 25, 23, 0.07), 0 2px 4px -2px rgba(28, 25, 23, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(28, 25, 23, 0.08), 0 4px 6px -4px rgba(28, 25, 23, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(28, 25, 23, 0.08), 0 8px 10px -6px rgba(28, 25, 23, 0.05);
+  --shadow-premium: 0 25px 50px -12px rgba(193, 18, 31, 0.12);
+  
+  /* Typography */
+  --font-arabic: 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+  --font-english: 'DM Sans', 'Inter', 'Segoe UI', sans-serif;
+  
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  
+  /* Layout */
+  --container-max: 1280px;
+  --container-narrow: 960px;
+  --header-height: 88px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[lang="ar"] body {
+  font-family: var(--font-arabic);
+  direction: rtl;
+}
+
+[lang="en"] body {
+  font-family: var(--font-english);
+  direction: ltr;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.section {
+  padding: var(--space-20) 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-16) 0;
+  }
+}
+
+.section--lg {
+  padding: var(--space-24) 0;
+}
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

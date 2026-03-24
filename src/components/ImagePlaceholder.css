@@ -1,0 +1,27 @@
+.image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-alt);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  min-height: 120px;
+  width: 100%;
+}
+
+.image-placeholder__label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.image-placeholder--on-dark {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.image-placeholder--on-dark .image-placeholder__label {
+  color: rgba(255, 255, 255, 0.7);
+}

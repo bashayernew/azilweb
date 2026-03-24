@@ -1,0 +1,118 @@
+.service-detail {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-16);
+  align-items: center;
+  padding: var(--space-16) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.service-detail:last-of-type {
+  border-bottom: none;
+}
+
+.service-detail--reverse {
+  direction: rtl;
+}
+
+.service-detail--reverse .service-detail__visual {
+  order: 2;
+}
+
+.service-detail--reverse .service-detail__content {
+  order: 1;
+}
+
+.service-detail__visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.service-detail__placeholder {
+  width: 100%;
+  max-width: 400px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.service-detail__icon-wrap {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(193, 18, 31, 0.1);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+.service-detail__icon {
+  flex-shrink: 0;
+}
+
+.service-detail__check {
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+.service-detail__title {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+
+.service-detail__desc {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: var(--space-6);
+}
+
+.service-detail__benefits {
+  margin-bottom: var(--space-8);
+}
+
+.service-detail__benefits li {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  padding: var(--space-2) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.services-cta__box {
+  text-align: center;
+  padding: var(--space-12);
+}
+
+.services-cta__box h2 {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  margin-bottom: var(--space-4);
+}
+
+.services-cta__box p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+
+@media (max-width: 1024px) {
+  .service-detail,
+  .service-detail--reverse {
+    grid-template-columns: 1fr;
+    direction: inherit;
+  }
+
+  .service-detail--reverse .service-detail__visual,
+  .service-detail--reverse .service-detail__content {
+    order: unset;
+  }
+
+  .service-detail__visual {
+    order: -1;
+  }
+}

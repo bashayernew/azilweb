@@ -1,0 +1,103 @@
+.team-intro__content h2 {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: var(--space-6);
+}
+
+.team-intro__content p {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.team-sections__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-8);
+}
+
+.team-section-card {
+  background: var(--color-bg-card);
+  padding: var(--space-10);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.team-section-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.team-section-card__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--space-6);
+  background: rgba(193, 18, 31, 0.1);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-section-card h3 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+
+.team-section-card p {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.team-values__content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.team-values__content h2 {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  margin-bottom: var(--space-8);
+}
+
+.team-values__content ul {
+  text-align: right;
+}
+
+.team-values__content li {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.team-values__content li:last-child {
+  border-bottom: none;
+}
+
+.team-cta__box {
+  text-align: center;
+  padding: var(--space-12);
+}
+
+.team-cta__box h2 {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  margin-bottom: var(--space-4);
+}
+
+.team-cta__box p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}

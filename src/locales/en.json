@@ -1,0 +1,273 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Our Services",
+    "clients": "Clients",
+    "team": "Our Team",
+    "contact": "Contact Us"
+  },
+  "header": {
+    "requestInspection": "Request Inspection",
+    "menuAria": "Menu"
+  },
+  "brand": {
+    "name": "Al Hamra CI",
+    "tagline": "Insulation & Construction Materials"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us",
+    "desc": "A leading Kuwaiti company providing waterproofing, thermal, and acoustic insulation solutions, with over 12 years of experience and excellence in serving the construction sector.",
+    "copyright": "© {year} Al Hamra CI for Insulation & Construction Materials. All rights reserved.",
+    "address": "Kuwait - Shuwaikh Industrial - Mtafi Street - Slaughterhouse Roundabout",
+    "ariaFacebook": "Facebook",
+    "ariaInstagram": "Instagram"
+  },
+  "common": {
+    "imagePlaceholder": "Image Placeholder"
+  },
+  "whatsapp": {
+    "label": "WhatsApp",
+    "ariaLabel": "Contact via WhatsApp"
+  },
+  "home": {
+    "heroBadge": "A Leading Kuwaiti Company Since 2012",
+    "heroTitle": "Professional Insulation & Construction Solutions in Kuwait",
+    "heroSubtitle": "We provide waterproofing, thermal, and acoustic insulation services with high quality standards, supported by a skilled technical team and strong experience in the construction sector.",
+    "requestInspection": "Request Inspection",
+    "contactNow": "Contact Now",
+    "statYears": "Years of Experience",
+    "statClients": "Trusted Clients",
+    "statAreas": "All Areas of Kuwait",
+    "statYearsVal": "+12",
+    "statClientsVal": "+100",
+    "statAreasVal": "All",
+    "aboutOverline": "About Us",
+    "aboutHeading": "Al Hamra CI for Insulation & Construction Materials",
+    "aboutText": "A Kuwaiti company specializing in comprehensive waterproofing, thermal, and acoustic insulation solutions. We work with over 100 local companies and take pride in our team of skilled technicians and specialists serving our clients with the highest standards of professionalism and quality.",
+    "learnMore": "Learn More About Us",
+    "aboutCardTitle": "Experience & Expertise",
+    "aboutCardDesc": "We have executed hundreds of projects across various insulation types",
+    "servicesOverline": "Our Services",
+    "servicesHeading": "Our Company's Insulation Services",
+    "servicesSub": "We offer integrated solutions in waterproofing, thermal, and acoustic insulation",
+    "viewAllServices": "View All Services",
+    "learnMoreArrow": "Learn More →",
+    "whyUsOverline": "Why Us",
+    "whyUsHeading": "Why Choose Al Hamra CI?",
+    "trustOverline": "Client Trust",
+    "trustHeading": "Trusted by Over 100 Local Companies",
+    "trustSub": "We have a team of skilled technicians and specialists serving our clients",
+    "trustBadge1": "Construction Companies",
+    "trustBadge2": "Contractors",
+    "trustBadge3": "Real Estate Developers",
+    "trustBadge4": "Government Entities",
+    "trustLearnMore": "Learn More About Our Clients",
+    "projectsOverline": "Our Work",
+    "projectsHeading": "Our Areas of Expertise",
+    "projectsSub": "We have executed diverse projects across various insulation types",
+    "waterproofing": "Waterproofing Insulation",
+    "waterproofingVisual": "Waterproofing",
+    "waterproofingDesc": "Protecting buildings from moisture and leaks",
+    "thermal": "Thermal Insulation",
+    "thermalVisual": "Thermal",
+    "thermalDesc": "Reducing energy consumption and improving efficiency",
+    "acoustic": "Acoustic Insulation",
+    "acousticVisual": "Acoustic",
+    "acousticDesc": "Achieving comfort and tranquility in spaces",
+    "ctaTitle": "Ready to Start Your Project?",
+    "ctaText": "Contact us now for a free inspection or inquiry about our services. Our team is ready to serve you.",
+    "ctaWhatsApp": "Contact via WhatsApp",
+    "ctaForm": "Contact Form",
+    "services": {
+      "basement": {
+        "title": "Basement & Cellar Insulation",
+        "desc": "Integrated solutions for insulating basements and cellars from moisture and water leaks with high-quality materials.",
+        "anchor": "basement-insulation"
+      },
+      "roofs": {
+        "title": "Roof & Annex Insulation",
+        "desc": "Insulation for roofs, annexes, bathrooms, and kitchens for protection from heat and moisture.",
+        "anchor": "roof-insulation"
+      },
+      "pools": {
+        "title": "Swimming Pool Insulation",
+        "desc": "Professional insulation for swimming pools and gardens to prevent leaks and ensure continuous operation.",
+        "anchor": "pool-insulation"
+      },
+      "tanks": {
+        "title": "Water Tank & Garden Insulation",
+        "desc": "Protecting water tanks and gardens from leaks and corrosion with specialized insulation materials.",
+        "anchor": "tank-insulation"
+      },
+      "acDucts": {
+        "title": "AC & Duct Insulation",
+        "desc": "Insulating air conditioning and ventilation systems to improve efficiency and reduce energy consumption.",
+        "anchor": "ac-duct-insulation"
+      },
+      "acoustic": {
+        "title": "Acoustic Insulation",
+        "desc": "Acoustic insulation solutions for buildings and rooms to achieve comfort and tranquility.",
+        "anchor": "acoustic-insulation"
+      }
+    },
+    "whyUs": {
+      "experience": { "title": "Long Experience", "desc": "Over 12 years in insulation and construction materials" },
+      "quality": { "title": "Quality Execution", "desc": "We adhere to the highest quality standards in every project" },
+      "supervision": { "title": "Technical Supervision", "desc": "A specialized technical team overseeing all execution phases" },
+      "speed": { "title": "Fast Response", "desc": "Quick response to inspection and execution requests" },
+      "aftercare": { "title": "Post-Completion Service", "desc": "Ongoing support and follow-up after project completion" },
+      "coverage": { "title": "Kuwait Coverage", "desc": "We serve all areas of Kuwait" }
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "A leading Kuwaiti company in insulation and construction materials for over 12 years",
+    "overline": "Al Hamra CI",
+    "heading": "Al Hamra CI for Insulation & Construction Materials",
+    "intro1": "Our company was established to serve the construction sector in Kuwait and the GCC, providing integrated solutions in waterproofing, thermal, and acoustic insulation. We work with over 100 local companies and take pride in our clients' trust, built on quality, commitment, and transparency.",
+    "intro2": "Our team comprises skilled technicians and engineers specialized in insulation works, trained on the latest global technologies and materials. We use high-quality materials and adhere to safety and quality standards in every project.",
+    "vision": "Our Vision",
+    "visionDesc": "To be the first choice for insulation and construction materials in Kuwait and the GCC, while maintaining the highest standards of quality and professionalism.",
+    "mission": "Our Mission",
+    "missionDesc": "To provide integrated and reliable insulation solutions that meet our clients' needs, with commitment to quality, transparency, and post-execution service.",
+    "valuesOverline": "Our Values",
+    "valuesHeading": "The Values We Believe In",
+    "values": {
+      "quality": { "title": "Quality", "desc": "We adhere to the highest quality standards in every project we execute" },
+      "transparency": { "title": "Transparency", "desc": "Clear and direct dealings with our clients at every stage" },
+      "professionalism": { "title": "Professionalism", "desc": "A specialized team trained on the latest insulation techniques" },
+      "commitment": { "title": "Commitment", "desc": "We meet deadlines and honor our commitments to clients" }
+    },
+    "processOverline": "Our Process",
+    "processHeading": "From Inquiry to Delivery",
+    "process": {
+      "step1": { "title": "Contact & Inquiry", "desc": "Contact us by phone or WhatsApp to request an inspection" },
+      "step2": { "title": "Free Inspection", "desc": "Our team visits the site and provides a technical report" },
+      "step3": { "title": "Quote & Approval", "desc": "We provide a detailed quote including materials and execution" },
+      "step4": { "title": "Execution & Supervision", "desc": "A specialized technical team executes the work under careful supervision" },
+      "step5": { "title": "Delivery & Follow-up", "desc": "Project delivery with warranty and post-execution follow-up" }
+    },
+    "ctaTitle": "Ready to Work With You",
+    "ctaText": "Contact us for a free inspection or inquiry about our services",
+    "requestInspection": "Request Inspection"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Integrated solutions in waterproofing, thermal, and acoustic insulation with the highest quality standards",
+    "overline": "Al Hamra CI Services",
+    "detail": {
+      "basement": {
+        "title": "Basement & Cellar Insulation",
+        "desc": "We provide integrated solutions for insulating basements and cellars from moisture and water leaks. We use high-quality, waterproof materials that ensure long-term building protection.",
+        "benefits": ["Protection from moisture and leaks", "High-quality materials", "Leak-proof guarantee", "Professional execution"]
+      },
+      "roofs": {
+        "title": "Roof, Annex, Bathroom & Kitchen Insulation",
+        "desc": "Comprehensive insulation for roofs, annexes, bathrooms, and kitchens for protection from heat and moisture. We maintain building comfort and reduce energy consumption.",
+        "benefits": ["Thermal and waterproofing", "Leak protection", "Reduced energy consumption", "Safe materials"]
+      },
+      "pools": {
+        "title": "Swimming Pool & Garden Insulation",
+        "desc": "Professional insulation for swimming pools and gardens to prevent leaks and ensure continuous operation. We use specialized materials resistant to water and chlorine.",
+        "benefits": ["Leak prevention", "Chemical resistance", "Long lifespan", "Low maintenance"]
+      },
+      "tanks": {
+        "title": "Water Tank & Garden Insulation",
+        "desc": "Protecting water tanks and gardens from leaks and corrosion with specialized insulation materials. We ensure water safety and structure protection.",
+        "benefits": ["Tank protection", "Corrosion prevention", "Garden insulation", "Water-safe materials"]
+      },
+      "acDucts": {
+        "title": "AC & Duct Insulation",
+        "desc": "Insulating air conditioning and ventilation systems (AC units and ducts) to improve efficiency and reduce energy consumption. We use high-quality thermal insulation materials.",
+        "benefits": ["Improved AC efficiency", "Reduced energy consumption", "Thermal and acoustic insulation", "Precise execution"]
+      },
+      "acoustic": {
+        "title": "Acoustic Insulation",
+        "desc": "Acoustic insulation solutions for buildings and rooms to achieve comfort and tranquility. We offer suitable solutions for homes, offices, and mosques.",
+        "benefits": ["Noise reduction", "Comfort and tranquility", "Sound-absorbing materials", "Specialized execution"]
+      }
+    },
+    "inquireService": "Inquire About This Service",
+    "ctaTitle": "Need a Consultation?",
+    "ctaText": "Our team is ready to answer your inquiries and provide a free inspection",
+    "ctaWhatsApp": "Contact via WhatsApp"
+  },
+  "clients": {
+    "title": "Our Clients",
+    "subtitle": "Proud of the trust of over 100 local companies in Kuwait and the Gulf region",
+    "overline": "Client Trust",
+    "heading": "Trusted by Over 100 Local Companies",
+    "intro": "Over more than 12 years, we have earned the trust of a wide range of clients in the construction sector. We work with construction companies, contractors, real estate developers, and government entities, and take pride in long-standing relationships with our clients based on trust and quality.",
+    "categoriesOverline": "Client Types",
+    "categoriesHeading": "We Serve Diverse Sectors",
+    "categories": [
+      "Construction & Contracting Companies",
+      "Real Estate Developers",
+      "Subcontractors",
+      "Government Entities",
+      "Real Estate Investment Companies",
+      "Individuals & Property Owners"
+    ],
+    "statYears": "Years of Experience",
+    "statClients": "Trusted Clients",
+    "statAreas": "All Areas of Kuwait",
+    "ctaTitle": "Join Our Client List",
+    "ctaText": "Contact us to start a successful and fruitful collaboration",
+    "requestInspection": "Request Inspection"
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "A specialized team of skilled technicians and specialists serving our clients",
+    "overline": "Al Hamra CI",
+    "heading": "We Have a Team of Skilled Technicians and Specialists",
+    "intro": "Al Hamra CI employs an integrated team combining practical experience and specialized training. We are committed to delivering high-quality service through careful technical supervision and continuous follow-up for every project. Our team is ready to respond to our clients' needs and ensure insulation work is executed to the highest standards.",
+    "structureOverline": "Team Structure",
+    "structureHeading": "Areas of Expertise",
+    "sections": {
+      "admin": { "title": "Administrative Team", "desc": "Manages company affairs, client relations, and strategic planning." },
+      "technical": { "title": "Technical Team", "desc": "Engineers and technicians specialized in insulation and fieldwork." },
+      "supervision": { "title": "Supervision & Quality", "desc": "Monitors execution quality and ensures projects meet specifications." },
+      "customer": { "title": "Customer Service", "desc": "Specialized team for inquiries and scheduling inspections." }
+    },
+    "valuesHeading": "What Sets Our Team Apart",
+    "values": [
+      "Long practical experience in insulation",
+      "Continuous training on latest technologies",
+      "Commitment to safety and quality standards",
+      "Quick response to client needs",
+      "Careful monitoring of all execution phases"
+    ],
+    "ctaTitle": "Contact Our Team",
+    "ctaText": "Our customer service team is ready to answer your inquiries and schedule an inspection",
+    "ctaWhatsApp": "Contact via WhatsApp"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Our team is ready to answer your inquiries and schedule a free inspection",
+    "overline": "Al Hamra CI",
+    "infoHeading": "Contact Information",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "address": "Address",
+    "viewOnMap": "View on Map",
+    "formHeading": "Send Your Inquiry",
+    "formIntro": "Fill out the form and we will contact you as soon as possible. Or contact us directly via WhatsApp.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your full name",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "965XXXXXXXX",
+    "emailLabel": "Email (optional)",
+    "emailPlaceholder": "example@email.com",
+    "messageLabel": "Inquiry",
+    "messagePlaceholder": "Write your inquiry or project description...",
+    "submitBtn": "Send via WhatsApp",
+    "mapTitle": "Kuwait - Shuwaikh Industrial - Mtafi Street - Slaughterhouse Roundabout",
+    "viewOnGoogleMaps": "View Location on Google Maps",
+    "waMessageIntro": "Hello, I am",
+    "waMessagePhone": "Phone",
+    "waMessageInquiry": "Inquiry"
+  }
+}
