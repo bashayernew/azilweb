@@ -7,7 +7,6 @@ const NAV_KEYS = [
   { pathKey: 'home', labelKey: 'nav.home' },
   { pathKey: 'about', labelKey: 'nav.about' },
   { pathKey: 'services', labelKey: 'nav.services' },
-  { pathKey: 'clients', labelKey: 'nav.clients' },
   { pathKey: 'team', labelKey: 'nav.team' },
   { pathKey: 'contact', labelKey: 'nav.contact' },
 ]
@@ -29,6 +28,9 @@ function Header() {
 
   const isActive = (pathKey) => {
     const p = path(pathKey)
+    if (pathKey === 'about') {
+      return location.pathname === p || location.pathname === '/عملائنا' || location.pathname === '/clients'
+    }
     return location.pathname === p
   }
 

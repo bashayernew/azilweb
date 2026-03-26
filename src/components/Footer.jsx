@@ -6,7 +6,6 @@ const FOOTER_LINK_KEYS = [
   { pathKey: 'home', labelKey: 'nav.home' },
   { pathKey: 'about', labelKey: 'nav.about' },
   { pathKey: 'services', labelKey: 'nav.services' },
-  { pathKey: 'clients', labelKey: 'nav.clients' },
   { pathKey: 'team', labelKey: 'nav.team' },
   { pathKey: 'contact', labelKey: 'nav.contact' },
 ]

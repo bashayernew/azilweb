@@ -30,11 +30,96 @@
   gap: var(--space-4);
 }
 
+.service-detail__media {
+  width: 100%;
+  max-width: 400px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-alt);
+}
+
+.service-detail__media:not(.service-detail__media--dual) .service-detail__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: brightness(1.03) contrast(1.04);
+}
+
+.service-detail__media--dual {
+  padding: var(--space-3) var(--space-4);
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--color-bg-alt) 92%, var(--color-text) 8%) 0%,
+    var(--color-bg-alt) 48%,
+    color-mix(in srgb, var(--color-bg-alt) 88%, var(--color-primary) 12%) 100%
+  );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.service-detail__dual-frame {
+  width: 100%;
+  min-height: 200px;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-bg-card) 94%, var(--color-bg-alt) 6%);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.65),
+    inset 0 -1px 1px rgba(28, 25, 23, 0.06),
+    0 2px 12px rgba(28, 25, 23, 0.07);
+}
+
+.service-detail__dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  min-height: 180px;
+}
+
+.service-detail__dual-cell {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px rgba(28, 25, 23, 0.1);
+}
+
+.service-detail__dual-cell .service-detail__img--dual {
+  width: 100%;
+  height: 100%;
+  min-height: 140px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: brightness(1.04) contrast(1.05) saturate(1.02);
+}
+
 .service-detail__placeholder {
   width: 100%;
   max-width: 400px;
   border-radius: var(--radius-lg);
   overflow: hidden;
+}
+
+@media (max-width: 520px) {
+  .service-detail__media--dual {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .service-detail__dual-frame {
+    padding: 6px;
+  }
+
+  .service-detail__dual {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    min-height: 280px;
+  }
 }
 
 .service-detail__icon-wrap {

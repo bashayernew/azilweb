@@ -63,7 +63,7 @@
     "trustBadge2": "Contractors",
     "trustBadge3": "Real Estate Developers",
     "trustBadge4": "Government Entities",
-    "trustLearnMore": "Learn More About Our Clients",
+    "trustLearnMore": "Learn more about us & partners",
     "projectsOverline": "Our Work",
     "projectsHeading": "Our Areas of Expertise",
     "projectsSub": "We have executed diverse projects across various insulation types",
@@ -88,12 +88,13 @@
       },
       "roofs": {
         "title": "Roof & Annex Insulation",
-        "desc": "Insulation for roofs, annexes, bathrooms, and kitchens for protection from heat and moisture.",
+        "desc": "Insulation for roofs, annexes, bathrooms, and kitchens against heat and moisture.",
         "anchor": "roof-insulation"
       },
       "pools": {
-        "title": "Swimming Pool Insulation",
-        "desc": "Professional insulation for swimming pools and gardens to prevent leaks and ensure continuous operation.",
+        "title": "Swimming Pool & Garden Insulation",
+        "desc": "Professional insulation for swimming pools and gardens to prevent leaks and ensure continuous operation. We use specialized materials resistant to water and chlorine.",
+        "benefits": ["Leak prevention", "Chemical resistance", "Long lifespan", "Low maintenance"],
         "anchor": "pool-insulation"
       },
       "tanks": {
@@ -165,7 +166,7 @@
       },
       "roofs": {
         "title": "Roof, Annex, Bathroom & Kitchen Insulation",
-        "desc": "Comprehensive insulation for roofs, annexes, bathrooms, and kitchens for protection from heat and moisture. We maintain building comfort and reduce energy consumption.",
+        "desc": "Comprehensive insulation for roofs, annexes, bathrooms, and kitchens against heat and moisture. We help maintain comfort and reduce energy use.",
         "benefits": ["Thermal and waterproofing", "Leak protection", "Reduced energy consumption", "Safe materials"]
       },
       "pools": {
@@ -213,6 +214,8 @@
     "statYears": "Years of Experience",
     "statClients": "Trusted Clients",
     "statAreas": "All Areas of Kuwait",
+    "logoShowcaseTitle": "A trusted partner network",
+    "logoShowcaseDesc": "Ongoing collaboration with leading construction and development organizations across Kuwait and the GCC.",
     "ctaTitle": "Join Our Client List",
     "ctaText": "Contact us to start a successful and fruitful collaboration",
     "requestInspection": "Request Inspection"

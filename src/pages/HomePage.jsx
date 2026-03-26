@@ -15,11 +15,24 @@ import {
   Volume2,
 } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
-import ImagePlaceholder from '../components/ImagePlaceholder'
+import { publicAsset, SERVICE_CARD_IMAGES } from '../constants/serviceImages'
 import './HomePage.css'
 import '../components/shared.css'
 
+/** Project gallery: العزل المائي / الحراري / الصوتي — shared layout & images */
+const PROJECT_GALLERY = [
+  {
+    id: 'waterproofing',
+    srcs: ['/pool1.webp', '/pool11.webp'],
+    titleKey: 'home.waterproofing',
+    descKey: 'home.waterproofingDesc',
+  },
+  { id: 'thermal', src: '/azilharary.webp', titleKey: 'home.thermal', descKey: 'home.thermalDesc' },
+  { id: 'acoustic', src: '/sound2.webp', titleKey: 'home.acoustic', descKey: 'home.acousticDesc' },
+]
+
 const SERVICE_KEYS = ['basement', 'roofs', 'pools', 'tanks', 'acDucts', 'acoustic']
+
 const WHY_US_KEYS = ['experience', 'quality', 'supervision', 'speed', 'aftercare', 'coverage']
 
 const ICON_MAP = {
@@ -53,7 +66,7 @@ function HomePage() {
           }
         })
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.05, rootMargin: '0px 0px 120px 0px' }
     )
     reveals.forEach((el) => observer.observe(el))
     return () => observer.disconnect()
@@ -101,7 +114,17 @@ function HomePage() {
               </div>
             </div>
             <div className="hero__visual">
-              <ImagePlaceholder className="hero__placeholder" aspectRatio="4/3" />
+              <div className="hero__media">
+                <video
+                  className="hero__video"
+                  src={publicAsset('/herosectionvid2.mp4')}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  aria-label={t('home.heroTitle')}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -125,7 +148,17 @@ function HomePage() {
             </div>
             <div className="about-preview__visual">
               <div className="about-preview__card">
-                <ImagePlaceholder className="about-preview__img" aspectRatio="16/10" variant="dark" />
+                <div className="about-preview__img about-preview__media">
+                  <video
+                    className="about-preview__video"
+                    src={publicAsset('/herosectionvid.mp4')}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    aria-label={t('home.aboutCardTitle')}
+                  />
+                </div>
                 <h3>{t('home.aboutCardTitle')}</h3>
                 <p>{t('home.aboutCardDesc')}</p>
               </div>
@@ -145,17 +178,61 @@ function HomePage() {
           <div className="services-grid">
             {SERVICE_KEYS.map((key, i) => {
               const Icon = SERVICE_ICON_MAP[key]
+              const imgConfig = SERVICE_CARD_IMAGES[key]
+              const dualSrcs = Array.isArray(imgConfig) ? imgConfig : null
+              const imgSrc = typeof imgConfig === 'string' ? imgConfig : null
+              const benefitsRaw = t(`home.services.${key}.benefits`)
+              const benefits = Array.isArray(benefitsRaw) ? benefitsRaw : null
               return (
                 <div key={key} className={`service-card reveal`} style={{ animationDelay: `${i * 0.05}s` }}>
-                  <ImagePlaceholder className="service-card__placeholder" aspectRatio="16/10" />
-                  <div className="service-card__icon-wrap">
-                    <Icon className="service-card__icon" size={24} strokeWidth={1.5} />
+                  <div className={`service-card__media${dualSrcs ? ' service-card__media--dual' : ''}`}>
+                    <div className="service-card__media-inner">
+                      {dualSrcs ? (
+                        <div className="service-card__dual-frame">
+                          <div className="service-card__dual" role="group" aria-label={t(`home.services.${key}.title`)}>
+                            {dualSrcs.map((src, idx) => (
+                              <div key={`${key}-${idx}`} className="service-card__dual-cell">
+                                <img
+                                  src={publicAsset(src)}
+                                  alt={idx === 0 ? t(`home.services.${key}.title`) : ''}
+                                  className="service-card__img service-card__img--dual"
+                                  loading="lazy"
+                                  decoding="async"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <img
+                          src={publicAsset(imgSrc)}
+                          alt={t(`home.services.${key}.title`)}
+                          className="service-card__img"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      )}
+                      <div className="service-card__img-gradient" aria-hidden="true" />
+                      <div className="service-card__img-hover" aria-hidden="true" />
+                    </div>
+                    <div className="service-card__icon-badge">
+                      <Icon size={22} strokeWidth={1.5} />
+                    </div>
                   </div>
-                  <h3 className="service-card__title">{t(`home.services.${key}.title`)}</h3>
-                  <p className="service-card__desc">{t(`home.services.${key}.desc`)}</p>
-                  <Link to={`${path('services')}#${t(`home.services.${key}.anchor`)}`} className="service-card__link">
-                    {t('home.learnMoreArrow')}
-                  </Link>
+                  <div className="service-card__body">
+                    <h3 className="service-card__title">{t(`home.services.${key}.title`)}</h3>
+                    <p className="service-card__desc">{t(`home.services.${key}.desc`)}</p>
+                    {benefits && (
+                      <ul className="service-card__bullets">
+                        {benefits.map((line, bi) => (
+                          <li key={`${key}-b${bi}`}>{line}</li>
+                        ))}
+                      </ul>
+                    )}
+                    <Link to={`${path('services')}#${t(`home.services.${key}.anchor`)}`} className="service-card__link">
+                      {t('home.learnMoreArrow')}
+                    </Link>
+                  </div>
                 </div>
               )
             })}
@@ -207,7 +284,7 @@ function HomePage() {
               <div className="trust-badge">{t('home.trustBadge3')}</div>
               <div className="trust-badge">{t('home.trustBadge4')}</div>
             </div>
-            <Link to={path('clients')} className="btn btn--outline">
+            <Link to={`${path('about')}#partners`} className="btn btn--outline">
               {t('home.trustLearnMore')}
             </Link>
           </div>
@@ -223,21 +300,48 @@ function HomePage() {
             <p className="section-title__sub">{t('home.projectsSub')}</p>
           </div>
           <div className="projects-grid reveal">
-            <div className="project-card">
-              <ImagePlaceholder className="project-card__placeholder" aspectRatio="16/10" />
-              <h3>{t('home.waterproofing')}</h3>
-              <p>{t('home.waterproofingDesc')}</p>
-            </div>
-            <div className="project-card">
-              <ImagePlaceholder className="project-card__placeholder" aspectRatio="16/10" />
-              <h3>{t('home.thermal')}</h3>
-              <p>{t('home.thermalDesc')}</p>
-            </div>
-            <div className="project-card">
-              <ImagePlaceholder className="project-card__placeholder" aspectRatio="16/10" />
-              <h3>{t('home.acoustic')}</h3>
-              <p>{t('home.acousticDesc')}</p>
-            </div>
+            {PROJECT_GALLERY.map((item) => {
+              const { id, titleKey, descKey } = item
+              const dualSrcs = item.srcs
+              const singleSrc = item.src
+              return (
+                <div key={id} className="project-card">
+                  <div className={`project-card__media${dualSrcs ? ' project-card__media--dual' : ''}`}>
+                    <div className="project-card__media-inner">
+                      {dualSrcs ? (
+                        <div className="project-card__dual-frame">
+                          <div className="project-card__dual" role="group" aria-label={t(titleKey)}>
+                            {dualSrcs.map((src, idx) => (
+                              <div key={`${id}-${idx}`} className="project-card__dual-cell">
+                                <img
+                                  src={publicAsset(src)}
+                                  alt={idx === 0 ? t(titleKey) : ''}
+                                  className="project-card__img project-card__img--dual"
+                                  loading="lazy"
+                                  decoding="async"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <img
+                          src={publicAsset(singleSrc)}
+                          alt={t(titleKey)}
+                          className="project-card__img"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      )}
+                      <div className="project-card__img-gradient" aria-hidden="true" />
+                      <div className="project-card__img-hover" aria-hidden="true" />
+                    </div>
+                  </div>
+                  <h3>{t(titleKey)}</h3>
+                  <p>{t(descKey)}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

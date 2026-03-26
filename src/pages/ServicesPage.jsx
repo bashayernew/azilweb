@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import ImagePlaceholder from '../components/ImagePlaceholder'
+import { publicAsset, SERVICE_DETAIL_IMAGES } from '../constants/serviceImages'
 import { useLanguage } from '../contexts/LanguageContext'
 import '../components/shared.css'
 import './ServicesPage.css'
@@ -65,6 +66,10 @@ function ServicesPage() {
         <div className="container">
           {SERVICE_KEYS.map((key, i) => {
             const Icon = SERVICE_ICONS[key]
+            const imgCfg = SERVICE_DETAIL_IMAGES[key]
+            const dualSrcs = Array.isArray(imgCfg) ? imgCfg : null
+            const singleSrc = typeof imgCfg === 'string' ? imgCfg : null
+            const detailTitle = t(`services.detail.${key}.title`)
             return (
               <article
                 key={key}
@@ -72,7 +77,37 @@ function ServicesPage() {
                 className={`service-detail reveal ${i % 2 === 1 ? 'service-detail--reverse' : ''}`}
               >
                 <div className="service-detail__visual">
-                  <ImagePlaceholder className="service-detail__placeholder" aspectRatio="4/3" />
+                  {dualSrcs ? (
+                    <div className="service-detail__media service-detail__media--dual">
+                      <div className="service-detail__dual-frame">
+                        <div className="service-detail__dual" role="group" aria-label={detailTitle}>
+                          {dualSrcs.map((src, idx) => (
+                            <div key={`${key}-${idx}`} className="service-detail__dual-cell">
+                              <img
+                                src={publicAsset(src)}
+                                alt={idx === 0 ? detailTitle : ''}
+                                className="service-detail__img service-detail__img--dual"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ) : singleSrc ? (
+                    <div className="service-detail__media">
+                      <img
+                        src={publicAsset(singleSrc)}
+                        alt={detailTitle}
+                        className="service-detail__img"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  ) : (
+                    <ImagePlaceholder className="service-detail__placeholder" aspectRatio="4/3" />
+                  )}
                   <div className="service-detail__icon-wrap">
                     <Icon className="service-detail__icon" size={28} strokeWidth={1.5} />
                   </div>
