@@ -8,6 +8,9 @@
     "contact": "Contact Us"
   },
   "header": {
+    "drawerNavLabel": "Navigation",
+    "drawerCall": "Call",
+    "drawerWhatsAppShort": "WhatsApp",
     "requestInspection": "Request Inspection",
     "menuAria": "Menu",
     "closeMenu": "Close menu"

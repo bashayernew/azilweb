@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { X, Phone, MessageCircle } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import './Header.css'
 
@@ -27,9 +28,10 @@ function Header() {
   }, [])
 
   useEffect(() => {
+    const prev = document.body.style.overflow
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => {
-      document.body.style.overflow = ''
+      document.body.style.overflow = prev
     }
   }, [mobileOpen])
 
@@ -45,18 +47,21 @@ function Header() {
     return location.pathname === p
   }
 
+  const closeMenu = () => setMobileOpen(false)
+
   return (
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
       {mobileOpen ? (
         <button
           type="button"
           className="header__backdrop"
-          onClick={() => setMobileOpen(false)}
+          onClick={closeMenu}
           aria-label={t('header.closeMenu')}
         />
       ) : null}
+
       <div className="header__inner container">
-        <Link to="/" className="header__logo">
+        <Link to="/" className="header__logo" onClick={closeMenu}>
           <img
             src="/logohamra-removebg-preview.png"
             alt={t('brand.name')}
@@ -64,40 +69,87 @@ function Header() {
           />
         </Link>
 
-        <nav className={`header__nav ${mobileOpen ? 'header__nav--open' : ''}`}>
+        <nav
+          className={`header__nav ${mobileOpen ? 'header__nav--open' : ''}`}
+          id="site-navigation"
+          aria-label={t('header.drawerNavLabel')}
+        >
+          {/* Mobile drawer: top bar + label (hidden on desktop via CSS) */}
+          <div className="header__drawer-chrome">
+            <div className="header__drawer-top">
+              <Link to="/" className="header__drawer-logo" onClick={closeMenu}>
+                <img
+                  src="/logohamra-removebg-preview.png"
+                  alt=""
+                  className="header__drawer-logo-img"
+                />
+              </Link>
+              <button
+                type="button"
+                className="header__drawer-close"
+                onClick={closeMenu}
+                aria-label={t('header.closeMenu')}
+              >
+                <X size={22} strokeWidth={2.25} aria-hidden="true" />
+              </button>
+            </div>
+            <p className="header__drawer-overline">{t('header.drawerNavLabel')}</p>
+          </div>
+
           <ul className="header__nav-list">
             {NAV_KEYS.map(({ pathKey, labelKey }) => (
-              <li key={pathKey}>
+              <li key={pathKey} className="header__nav-item">
                 <Link
                   to={path(pathKey)}
                   className={`header__nav-link ${isActive(pathKey) ? 'header__nav-link--active' : ''}`}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={closeMenu}
                 >
                   {t(labelKey)}
                 </Link>
               </li>
             ))}
           </ul>
-          <div className="header__nav-mobile-actions">
-            <button
-              type="button"
-              className="header__lang-toggle header__lang-toggle--mobile"
-              onClick={() => {
-                toggleLang()
-                setMobileOpen(false)
-              }}
-              aria-label={lang === 'ar' ? 'Switch to English' : 'التبديل إلى العربية'}
-            >
-              {lang === 'ar' ? 'EN' : 'AR'}
-            </button>
+
+          <div className="header__drawer-cta">
             <a
               href="https://wa.link/cszcj8"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn--primary"
-              onClick={() => setMobileOpen(false)}
+              className="btn btn--primary btn--lg header__drawer-primary-cta"
+              onClick={closeMenu}
             >
               {t('header.requestInspection')}
+            </a>
+          </div>
+
+          <div className="header__drawer-footer">
+            <button
+              type="button"
+              className="header__drawer-footer-lang"
+              onClick={() => {
+                toggleLang()
+                closeMenu()
+              }}
+              aria-label={lang === 'ar' ? 'Switch to English' : 'Switch to Arabic'}
+            >
+              <span className="header__drawer-footer-lang-label">
+                {lang === 'ar' ? 'English' : 'العربية'}
+              </span>
+              <span className="header__drawer-footer-lang-badge">{lang === 'ar' ? 'EN' : 'AR'}</span>
+            </button>
+            <a href="tel:+96524915426" className="header__drawer-footer-link" onClick={closeMenu}>
+              <Phone size={18} strokeWidth={2} aria-hidden="true" />
+              <span>{t('header.drawerCall')}</span>
+            </a>
+            <a
+              href="https://wa.link/cszcj8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="header__drawer-footer-link header__drawer-footer-link--wa"
+              onClick={closeMenu}
+            >
+              <MessageCircle size={18} strokeWidth={2} aria-hidden="true" />
+              <span>{t('header.drawerWhatsAppShort')}</span>
             </a>
           </div>
         </nav>
@@ -123,13 +175,16 @@ function Header() {
         </div>
 
         <button
+          type="button"
           className={`header__toggle ${mobileOpen ? 'header__toggle--open' : ''}`}
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-expanded={mobileOpen}
+          aria-controls="site-navigation"
           aria-label={t('header.menuAria')}
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
         </button>
       </div>
     </header>

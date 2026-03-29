@@ -10,7 +10,10 @@
   "header": {
     "requestInspection": "اطلب معاينة",
     "menuAria": "القائمة",
-    "closeMenu": "إغلاق القائمة"
+    "closeMenu": "إغلاق القائمة",
+    "drawerNavLabel": "التنقل",
+    "drawerCall": "اتصال",
+    "drawerWhatsAppShort": "واتساب"
   },
   "brand": {
     "name": "الحمرا سي آي",
