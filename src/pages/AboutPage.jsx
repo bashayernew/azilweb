@@ -9,10 +9,40 @@ import {
   Handshake,
   Building2,
   Check,
+  Hotel,
+  Home,
+  Volume2,
+  Droplets,
+  GraduationCap,
+  Car,
+  Factory,
+  Bath,
+  Landmark,
+  Trees,
+  Waves,
 } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
+import { publicAsset } from '../constants/serviceImages'
 import '../components/shared.css'
 import './AboutPage.css'
+
+const STORY_IMAGE = '/roof2.webp'
+
+/** One icon per project type — cycles if list grows */
+const PREVIOUS_PROJECT_ICONS = [
+  Hotel,
+  Building2,
+  Home,
+  Volume2,
+  Droplets,
+  GraduationCap,
+  Car,
+  Factory,
+  Bath,
+  Landmark,
+  Trees,
+  Waves,
+]
 
 const VALUE_KEYS = ['quality', 'transparency', 'professionalism', 'commitment']
 const VALUE_ICONS = {
@@ -23,6 +53,27 @@ const VALUE_ICONS = {
 }
 const PROCESS_KEYS = ['step1', 'step2', 'step3', 'step4', 'step5']
 
+function normalizePreviousProjects(raw) {
+  if (!Array.isArray(raw)) return []
+  return raw.map((item, i) => {
+    if (item && typeof item === 'object' && 'name' in item) {
+      return {
+        id: `pp-${i}`,
+        name: String(item.name),
+        highlight: Boolean(item.highlight),
+      }
+    }
+    if (typeof item === 'string') {
+      return {
+        id: `pp-${i}`,
+        name: item,
+        highlight: /كراون بلازا|Crowne|Crown Plaza/i.test(item),
+      }
+    }
+    return { id: `pp-${i}`, name: '', highlight: false }
+  })
+}
+
 function AboutPage() {
   const { t, path } = useLanguage()
   const location = useLocation()
@@ -31,6 +82,13 @@ function AboutPage() {
     const categories = t('clients.categories')
     return Array.isArray(categories) ? categories : []
   })()
+
+  const partnersSuccessList = (() => {
+    const list = t('about.partnersSuccessList')
+    return Array.isArray(list) ? list : []
+  })()
+
+  const previousProjects = normalizePreviousProjects(t('about.previousProjects'))
 
   const heroStats = [
     { value: t('home.statYearsVal'), label: t('home.statYears') },
@@ -70,6 +128,16 @@ function AboutPage() {
             </h1>
             <p className="about-page__hero-lead">{t('about.subtitle')}</p>
             <p className="about-page__hero-trust">{t('clients.subtitle')}</p>
+            <div className="about-page__hero-cta">
+              <a
+                href="https://wa.link/cszcj8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--primary btn--lg"
+              >
+                {t('about.requestInspection')}
+              </a>
+            </div>
             <div className="about-page__hero-stats" role="presentation">
               {heroStats.map((s) => (
                 <div key={s.label} className="about-page__hero-stat">
@@ -92,10 +160,18 @@ function AboutPage() {
               <p className="about-page__story-p">{t('about.intro1')}</p>
               <p className="about-page__story-p">{t('about.intro2')}</p>
             </div>
-            <div className="about-page__story-panel reveal" aria-hidden="true">
-              <div className="about-page__story-accent" />
-              <div className="about-page__story-glass">
-                <Building2 size={40} strokeWidth={1} className="about-page__story-icon" />
+            <div className="about-page__story-panel reveal">
+              <div className="about-page__story-frame">
+                <img
+                  src={publicAsset(STORY_IMAGE)}
+                  alt=""
+                  className="about-page__story-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="about-page__story-img-caption" aria-hidden="true">
+                  <Building2 size={28} strokeWidth={1.25} />
+                </div>
               </div>
             </div>
           </div>
@@ -152,17 +228,103 @@ function AboutPage() {
             <span className="section-title__overline">{t('about.processOverline')}</span>
             <h2 className="section-title__heading">{t('about.processHeading')}</h2>
           </div>
-          <div className="about-page__timeline">
+          <div className="about-page__timeline about-page__timeline--premium">
             {PROCESS_KEYS.map((key, i) => (
-              <div key={key} className="about-page__timeline-step reveal">
-                <div className="about-page__timeline-num">{i + 1}</div>
-                <div className="about-page__timeline-body">
+              <article key={key} className="about-page__timeline-item reveal">
+                <div className="about-page__timeline-axis" aria-hidden="true">
+                  <span className="about-page__timeline-node">{i + 1}</span>
+                  {i < PROCESS_KEYS.length - 1 ? <span className="about-page__timeline-connector" /> : null}
+                </div>
+                <div className="about-page__timeline-content">
                   <h3>{t(`about.process.${key}.title`)}</h3>
                   <p>{t(`about.process.${key}.desc`)}</p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section
+        className="about-page__partners-success section"
+        aria-labelledby="partners-success-title"
+      >
+        <div className="about-page__partners-success__deco" aria-hidden="true">
+          <span className="about-page__partners-success__shape about-page__partners-success__shape--1" />
+          <span className="about-page__partners-success__shape about-page__partners-success__shape--2" />
+        </div>
+        <div className="container">
+          <div className="section-title reveal">
+            <span className="section-title__overline">{t('about.partnersSuccessOverline')}</span>
+            <h2 id="partners-success-title" className="section-title__heading">
+              {t('about.partnersSuccessTitle')}
+            </h2>
+            <p className="section-title__sub about-page__partners-success__intro">
+              {t('about.partnersSuccessSub')}
+            </p>
+          </div>
+          <ul
+            className="about-page__partners-success__grid reveal"
+            dir="rtl"
+            lang="ar"
+          >
+            {partnersSuccessList.map((name, i) => (
+              <li key={i} className="about-page__partners-success__item">
+                <span className="about-page__partners-success__accent" aria-hidden="true" />
+                <span className="about-page__partners-success__name">{name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section
+        className="about-page__previous-projects"
+        aria-labelledby="previous-projects-title"
+      >
+        <div className="about-page__previous-projects__bg" aria-hidden="true" />
+        <div className="container">
+          <div className="section-title reveal">
+            <span className="section-title__overline">{t('about.previousProjectsOverline')}</span>
+            <h2 id="previous-projects-title" className="section-title__heading">
+              {t('about.previousProjectsTitle')}
+            </h2>
+            <p className="section-title__sub about-page__previous-projects__intro">
+              {t('about.previousProjectsSub')}
+            </p>
+          </div>
+          <ul
+            className="about-page__previous-projects__grid reveal"
+            dir="rtl"
+            lang="ar"
+          >
+            {previousProjects.map((project, i) => {
+              if (!project.name.trim()) return null
+              const IconCmp = PREVIOUS_PROJECT_ICONS[i % PREVIOUS_PROJECT_ICONS.length]
+              return (
+              <li
+                key={project.id}
+                className={`about-page__previous-projects__card${project.highlight ? ' about-page__previous-projects__card--featured' : ''}`}
+              >
+                {project.highlight ? (
+                  <span className="about-page__previous-projects__badge">
+                    {t('about.previousProjectsFeaturedBadge')}
+                  </span>
+                ) : null}
+                <div className="about-page__previous-projects__symbol" aria-hidden="true">
+                  <div className="about-page__previous-projects__icon-ring">
+                    <div className="about-page__previous-projects__icon-blob">
+                      <IconCmp size={30} strokeWidth={1.35} />
+                    </div>
+                  </div>
+                </div>
+                <div className="about-page__previous-projects__card-inner">
+                  <p className="about-page__previous-projects__name">{project.name}</p>
+                </div>
+              </li>
+              )
+            })}
+          </ul>
         </div>
       </section>
 
@@ -204,18 +366,6 @@ function AboutPage() {
             <div className="about-page__trust-item">
               <span className="about-page__trust-value">{t('home.statAreasVal')}</span>
               <span className="about-page__trust-label">{t('clients.statAreas')}</span>
-            </div>
-          </div>
-
-          <div className="about-page__logo-showcase reveal">
-            <h3 className="about-page__logo-showcase-title">{t('clients.logoShowcaseTitle')}</h3>
-            <p className="about-page__logo-showcase-desc">{t('clients.logoShowcaseDesc')}</p>
-            <div className="about-page__logo-grid" aria-label={t('clients.logoShowcaseTitle')}>
-              {Array.from({ length: 8 }).map((_, i) => (
-                <div key={i} className="about-page__logo-slot">
-                  <Building2 size={22} strokeWidth={1.25} className="about-page__logo-slot-icon" aria-hidden="true" />
-                </div>
-              ))}
             </div>
           </div>
         </div>

@@ -1,12 +1,14 @@
 import { useEffect } from 'react'
 import { Briefcase, HardHat, CheckCircle, Phone } from 'lucide-react'
 import PageHero from '../components/PageHero'
+import { publicAsset } from '../constants/serviceImages'
 import { useLanguage } from '../contexts/LanguageContext'
 import '../components/shared.css'
 import './TeamPage.css'
 
 const TEAM_SECTION_KEYS = ['admin', 'technical', 'supervision', 'customer']
 const TEAM_ICONS = [Briefcase, HardHat, CheckCircle, Phone]
+const TEAM_PHOTO_PATH = 'tam%20image.webp'
 
 function TeamPage() {
   const { t } = useLanguage()
@@ -32,11 +34,26 @@ function TeamPage() {
         overline={t('team.overline')}
       />
 
-      <section className="section team-intro">
-        <div className="container container--narrow">
-          <div className="team-intro__content reveal">
-            <h2>{t('team.heading')}</h2>
-            <p>{t('team.intro')}</p>
+      <section className="section team-lead">
+        <div className="container">
+          <div className="team-lead__grid reveal">
+            <div className="team-lead__text">
+              <h2>{t('team.heading')}</h2>
+              <p>{t('team.intro')}</p>
+            </div>
+            <figure className="team-lead__figure">
+              <div className="team-lead__frame">
+                <img
+                  className="team-lead__img"
+                  src={publicAsset(TEAM_PHOTO_PATH)}
+                  alt={t('home.teamImageAlt')}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="team-lead__shine" aria-hidden="true" />
+              </div>
+              <figcaption className="team-lead__caption">{t('team.photoCaption')}</figcaption>
+            </figure>
           </div>
         </div>
       </section>

@@ -16,6 +16,9 @@ import {
 } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { publicAsset, SERVICE_CARD_IMAGES } from '../constants/serviceImages'
+import { HERO_HOME_MEDIA } from '../constants/heroHome'
+import HeroMedia from '../components/HeroMedia'
+import OurTeamSection from '../components/OurTeamSection'
 import './HomePage.css'
 import '../components/shared.css'
 
@@ -80,24 +83,27 @@ function HomePage() {
 
   return (
     <div className="home">
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero__bg">
-          <div className="hero__overlay"></div>
-          <div className="hero__pattern"></div>
+      {/* Hero — two columns: copy (start) + framed video (end); RTL flips visually */}
+      <section className="hero" aria-labelledby="home-hero-title">
+        <div className="hero__bg" aria-hidden="true">
+          <div className="hero__overlay" />
+          <div className="hero__pattern" />
         </div>
-        <div className="hero__content container">
-          <div className="hero__grid reveal">
-            <div className="hero__text">
+        <div className="hero__inner container">
+          <div className="hero__grid">
+            <div className="hero__copy reveal">
               <span className="hero__badge">{t('home.heroBadge')}</span>
-              <h1 className="hero__title">
+              <h1 id="home-hero-title" className="hero__title">
                 {t('home.heroTitle')}
               </h1>
-              <p className="hero__subtitle">
-                {t('home.heroSubtitle')}
-              </p>
+              <p className="hero__subtitle">{t('home.heroSubtitle')}</p>
               <div className="hero__ctas">
-                <a href="https://wa.link/cszcj8" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--lg">
+                <a
+                  href="https://wa.link/cszcj8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn--primary btn--lg"
+                >
                   {t('home.requestInspection')}
                 </a>
                 <a href="tel:+96524915426" className="btn btn--light btn--lg">
@@ -113,18 +119,13 @@ function HomePage() {
                 ))}
               </div>
             </div>
-            <div className="hero__visual">
-              <div className="hero__media">
-                <video
-                  className="hero__video"
-                  src={publicAsset('/herosectionvid2.mp4')}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  aria-label={t('home.heroTitle')}
-                />
-              </div>
+            <div className="hero__media-col reveal">
+              <HeroMedia
+                videoSrc={HERO_HOME_MEDIA.video}
+                posterSrc={HERO_HOME_MEDIA.poster}
+                fallbackImageSrc={HERO_HOME_MEDIA.fallback}
+                ariaLabel={t('home.heroVideoAria')}
+              />
             </div>
           </div>
         </div>
@@ -135,32 +136,32 @@ function HomePage() {
         <div className="container">
           <div className="about-preview__grid reveal">
             <div className="about-preview__content">
-              <span className="section-title__overline">{t('home.aboutOverline')}</span>
-              <h2 className="about-preview__heading">
-                {t('home.aboutHeading')}
-              </h2>
-              <p className="about-preview__text">
-                {t('home.aboutText')}
-              </p>
-              <Link to={path('about')} className="btn btn--primary">
+              <span className="section-title__overline about-preview__overline">{t('home.aboutOverline')}</span>
+              <h2 className="about-preview__heading">{t('home.aboutHeading')}</h2>
+              <p className="about-preview__text">{t('home.aboutText')}</p>
+              <Link to={path('about')} className="btn btn--primary btn--lg about-preview__cta">
                 {t('home.learnMore')}
               </Link>
             </div>
             <div className="about-preview__visual">
               <div className="about-preview__card">
-                <div className="about-preview__img about-preview__media">
+                <div className="about-preview__card-video-wrap">
                   <video
-                    className="about-preview__video"
-                    src={publicAsset('/herosectionvid.mp4')}
+                    className="about-preview__card-video"
+                    src={publicAsset('herosectionvid.mp4')}
                     autoPlay
                     muted
                     loop
                     playsInline
+                    preload="metadata"
+                    poster={publicAsset('roof2.webp')}
                     aria-label={t('home.aboutCardTitle')}
                   />
                 </div>
-                <h3>{t('home.aboutCardTitle')}</h3>
-                <p>{t('home.aboutCardDesc')}</p>
+                <div className="about-preview__card-copy">
+                  <h3>{t('home.aboutCardTitle')}</h3>
+                  <p>{t('home.aboutCardDesc')}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -290,6 +291,8 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      <OurTeamSection />
 
       {/* Projects / Gallery */}
       <section className="section projects-section">

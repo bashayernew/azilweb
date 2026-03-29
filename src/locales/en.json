@@ -9,7 +9,8 @@
   },
   "header": {
     "requestInspection": "Request Inspection",
-    "menuAria": "Menu"
+    "menuAria": "Menu",
+    "closeMenu": "Close menu"
   },
   "brand": {
     "name": "Al Hamra CI",
@@ -32,6 +33,7 @@
     "ariaLabel": "Contact via WhatsApp"
   },
   "home": {
+    "heroVideoAria": "Showcase of insulation work and project execution",
     "heroBadge": "A Leading Kuwaiti Company Since 2012",
     "heroTitle": "Professional Insulation & Construction Solutions in Kuwait",
     "heroSubtitle": "We provide waterproofing, thermal, and acoustic insulation services with high quality standards, supported by a skilled technical team and strong experience in the construction sector.",
@@ -64,6 +66,11 @@
     "trustBadge3": "Real Estate Developers",
     "trustBadge4": "Government Entities",
     "trustLearnMore": "Learn more about us & partners",
+    "teamHeading": "Our Team",
+    "teamSub": "Meet the professionals behind our success",
+    "teamSummary": "An integrated team combining practical experience and specialized training, with careful technical supervision and follow-up on every project. We are ready to serve our clients and deliver insulation work to the highest standards.",
+    "teamCta": "Meet the team",
+    "teamImageAlt": "Al Hamra CI leadership and technical team",
     "projectsOverline": "Our Work",
     "projectsHeading": "Our Areas of Expertise",
     "projectsSub": "We have executed diverse projects across various insulation types",
@@ -152,7 +159,48 @@
     },
     "ctaTitle": "Ready to Work With You",
     "ctaText": "Contact us for a free inspection or inquiry about our services",
-    "requestInspection": "Request Inspection"
+    "requestInspection": "Request Inspection",
+    "partnersSuccessOverline": "Partnerships",
+    "partnersSuccessTitle": "Our Partners in Success",
+    "partnersSuccessSub": "We are proud to collaborate with a distinguished group of companies and institutions across contracting, trade, and building sectors.",
+    "partnersSuccessList": [
+      "شركة سالم محمد الدريع للمقاولات والمباني.",
+      "شركة أوبال للمقاولات العامة.",
+      "شركة الأحمدية للمقاولات.",
+      "شركة المتحدة للأعمار.",
+      "شركة سفر مسفر للتجارة العامة والمباني.",
+      "شركة سينيار المتحدة للتجارة العامة والمقاولات.",
+      "شركة الحلول الوطنية للتجارة العامة والمقاولات.",
+      "شركة (MNE) العالمية.",
+      "شركة تشيد الخليج للتجارة. (فندق كراون بلازا المبنى الجديد) العامة والمقاولات",
+      "شركة مجموعة الألعاب الأمريكية.",
+      "شركة اكستريم موتورز.",
+      "الشركة الإنشائية المشتركة المتحدة.",
+      "شركة مجموعة الشطي.",
+      "مؤسسة إبرار الأهل للمقاولات العامة والمباني.",
+      "شركة دار الخريجي للتجارة العامة والمقاولات.",
+      "شركة المقعي للمقاولات العامة للمباني.",
+      "مؤسسة تشطيب العالمية للتجارة العامة والمقاولات",
+      "مؤسسة سواتي للتجارة العامة والمقاولات."
+    ],
+    "previousProjectsOverline": "Portfolio",
+    "previousProjectsTitle": "Our Projects",
+    "previousProjectsSub": "A selection of insulation, waterproofing, and finishing projects delivered across Kuwait—with technical supervision and trusted materials.",
+    "previousProjectsFeaturedBadge": "Signature project",
+    "previousProjects": [
+      { "name": "فندق كراون بلازا — المبنى الجديد (أعمال عزل مائي وحراري وتشطيبات)", "highlight": true },
+      { "name": "برج تجاري — وسط الكويت (عزل حراري للأسطح والملاحق)", "highlight": false },
+      { "name": "مجمع فلل سكنية — الشويخ (عزل أسطح ووحدات خارجية)", "highlight": false },
+      { "name": "مبنى إداري متعدد الطوابق — شرق (عزل صوتي للأسقف والجدران)", "highlight": false },
+      { "name": "منشأة صحية — عزل مائي وصحي للأسطح والغرف الرطبة", "highlight": false },
+      { "name": "مدرسة أهلية — الجهراء (عزل أساسات وقبو)", "highlight": false },
+      { "name": "مجمع تجاري — مواقف سيارات وقبو (عزل مائي متكامل)", "highlight": false },
+      { "name": "منشأة صناعية — الشويخ الصناعية (عزل أرضيات ومقاومة الرطوبة)", "highlight": false },
+      { "name": "فيلا سكنية — العدان (عزل حمامات ومطابخ)", "highlight": false },
+      { "name": "مسجد — عزل حراري للأسقف المعرضة للشمس", "highlight": false },
+      { "name": "مجمع سكني — خزانات مياه أرضية وعزل حدائق", "highlight": false },
+      { "name": "حمام سباحة فندقي — عزل مائي مقاوم للكلور والمواد الكيميائية", "highlight": false }
+    ]
   },
   "services": {
     "title": "Our Services",
@@ -214,8 +262,6 @@
     "statYears": "Years of Experience",
     "statClients": "Trusted Clients",
     "statAreas": "All Areas of Kuwait",
-    "logoShowcaseTitle": "A trusted partner network",
-    "logoShowcaseDesc": "Ongoing collaboration with leading construction and development organizations across Kuwait and the GCC.",
     "ctaTitle": "Join Our Client List",
     "ctaText": "Contact us to start a successful and fruitful collaboration",
     "requestInspection": "Request Inspection"
@@ -226,6 +272,7 @@
     "overline": "Al Hamra CI",
     "heading": "We Have a Team of Skilled Technicians and Specialists",
     "intro": "Al Hamra CI employs an integrated team combining practical experience and specialized training. We are committed to delivering high-quality service through careful technical supervision and continuous follow-up for every project. Our team is ready to respond to our clients' needs and ensure insulation work is executed to the highest standards.",
+    "photoCaption": "The professionals behind every project",
     "structureOverline": "Team Structure",
     "structureHeading": "Areas of Expertise",
     "sections": {
@@ -254,6 +301,12 @@
     "phone": "Phone",
     "whatsapp": "WhatsApp",
     "email": "Email",
+    "facebook": "Facebook",
+    "facebookDesc": "Alhamra CI page — updates & insulation work",
+    "facebookCta": "Visit our Facebook page",
+    "instagram": "Instagram",
+    "instagramDesc": "@alhamra.c.i — insulation experts, videos & services",
+    "instagramCta": "Visit our Instagram",
     "address": "Address",
     "viewOnMap": "View on Map",
     "formHeading": "Send Your Inquiry",
@@ -267,6 +320,8 @@
     "messageLabel": "Inquiry",
     "messagePlaceholder": "Write your inquiry or project description...",
     "submitBtn": "Send via WhatsApp",
+    "mapSectionHeading": "Our location on the map",
+    "mapIframeTitle": "Map — Al Hamra CI, Shuwaikh Industrial",
     "mapTitle": "Kuwait - Shuwaikh Industrial - Mtafi Street - Slaughterhouse Roundabout",
     "viewOnGoogleMaps": "View Location on Google Maps",
     "waMessageIntro": "Hello, I am",

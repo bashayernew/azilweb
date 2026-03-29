@@ -26,6 +26,17 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileOpen])
+
+  useEffect(() => {
+    setMobileOpen(false)
+  }, [location.pathname])
+
   const isActive = (pathKey) => {
     const p = path(pathKey)
     if (pathKey === 'about') {
@@ -36,6 +47,14 @@ function Header() {
 
   return (
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
+      {mobileOpen ? (
+        <button
+          type="button"
+          className="header__backdrop"
+          onClick={() => setMobileOpen(false)}
+          aria-label={t('header.closeMenu')}
+        />
+      ) : null}
       <div className="header__inner container">
         <Link to="/" className="header__logo">
           <img

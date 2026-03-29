@@ -171,7 +171,7 @@
 
 .services-cta__box {
   text-align: center;
-  padding: var(--space-12);
+  padding: clamp(var(--space-8), 5vw, var(--space-12));
 }
 
 .services-cta__box h2 {
@@ -185,11 +185,13 @@
   margin-bottom: var(--space-8);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 899px) {
   .service-detail,
   .service-detail--reverse {
     grid-template-columns: 1fr;
     direction: inherit;
+    padding: clamp(var(--space-10), 4vw, var(--space-16)) 0;
+    gap: var(--space-10);
   }
 
   .service-detail--reverse .service-detail__visual,
@@ -199,5 +201,21 @@
 
   .service-detail__visual {
     order: -1;
+  }
+
+  .service-detail__title {
+    font-size: clamp(1.25rem, 4vw, var(--text-2xl));
+    text-wrap: balance;
+  }
+
+  .service-detail__desc {
+    font-size: clamp(var(--text-base), 2.5vw, var(--text-lg));
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  .service-detail,
+  .service-detail--reverse {
+    gap: clamp(var(--space-10), 3vw, var(--space-16));
   }
 }

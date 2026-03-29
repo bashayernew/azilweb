@@ -116,9 +116,17 @@
 .footer__social {
   display: flex;
   gap: var(--space-4);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   color: rgba(255, 255, 255, 0.8);
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
@@ -147,5 +155,10 @@
   .footer__bottom-inner {
     flex-direction: column;
     text-align: center;
+    justify-content: center;
+  }
+
+  .footer__desc {
+    max-width: none;
   }
 }

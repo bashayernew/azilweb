@@ -1,0 +1,63 @@
+/* Framed hero video / image — premium shell */
+
+.hero-media {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 4px 6px -1px rgba(15, 23, 42, 0.15),
+    0 24px 48px -16px rgba(15, 23, 42, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.hero-media--static {
+  display: block;
+}
+
+.hero-media--empty {
+  min-height: 12rem;
+  background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);
+}
+
+.hero-media__video,
+.hero-media__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-media__video {
+  /* iOS: avoid invisible layer quirks */
+  transform: translateZ(0);
+}
+
+.hero-media__shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    transparent 42%,
+    transparent 58%,
+    rgba(15, 23, 42, 0.2) 100%
+  );
+  border-radius: inherit;
+}
+
+@media (max-width: 900px) {
+  .hero-media {
+    aspect-ratio: 16 / 9;
+    max-height: min(52vh, 420px);
+    margin-inline: auto;
+  }
+}
+

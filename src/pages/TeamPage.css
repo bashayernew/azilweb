@@ -1,19 +1,151 @@
-.team-intro__content h2 {
-  font-size: var(--text-2xl);
-  font-weight: 800;
-  color: var(--color-primary);
-  margin-bottom: var(--space-6);
+/* Intro + team photo — side by side on desktop; compact framed image */
+.team-lead {
+  padding-bottom: 0;
 }
 
-.team-intro__content p {
-  font-size: var(--text-lg);
+.team-lead__grid {
+  display: grid;
+  gap: clamp(var(--space-8), 4vw, var(--space-12));
+  align-items: center;
+}
+
+.team-lead__text h2 {
+  font-size: clamp(1.5rem, 3.5vw, var(--text-3xl));
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-6);
+  line-height: 1.25;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.team-lead__text p {
+  font-size: clamp(var(--text-base), 2.2vw, var(--text-lg));
   color: var(--color-text-muted);
   line-height: 1.8;
+  overflow-wrap: break-word;
+  margin: 0;
+  max-width: 40rem;
+}
+
+.team-lead__figure {
+  margin: 0;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+.team-lead__frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-secondary);
+  aspect-ratio: 4 / 3;
+  max-height: min(340px, 52vh);
+  box-shadow:
+    0 4px 6px -1px rgba(15, 23, 42, 0.1),
+    0 18px 36px -12px rgba(15, 23, 42, 0.18),
+    0 0 0 1px rgba(15, 23, 42, 0.06);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.team-lead__frame:hover {
+  box-shadow:
+    0 8px 24px -4px rgba(15, 23, 42, 0.14),
+    0 24px 48px -16px rgba(185, 28, 28, 0.12),
+    0 0 0 1px rgba(185, 28, 28, 0.12);
+  transform: translateY(-2px);
+}
+
+.team-lead__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.team-lead__shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 45%,
+    transparent 70%,
+    rgba(15, 23, 42, 0.05) 100%
+  );
+}
+
+.team-lead__caption {
+  margin-top: var(--space-4);
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+@media (min-width: 900px) {
+  .team-lead__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(260px, 400px);
+    gap: clamp(var(--space-10), 5vw, var(--space-16));
+    align-items: center;
+  }
+
+  .team-lead__figure {
+    margin-inline: 0;
+    max-width: none;
+  }
+
+  .team-lead__text {
+    text-align: start;
+  }
+
+  .team-lead__caption {
+    text-align: start;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .team-sections__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(var(--space-6), 3vw, var(--space-8));
+  }
+}
+
+@media (max-width: 899px) {
+  .team-lead__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-lead__figure {
+    max-width: min(360px, 100%);
+  }
+
+  .team-lead__frame {
+    max-height: min(260px, 38vh);
+  }
+
+  .team-lead__caption {
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-lead__frame {
+    transition: none;
+  }
+
+  .team-lead__frame:hover {
+    transform: none;
+  }
 }
 
 .team-sections__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
   gap: var(--space-8);
 }
 
@@ -63,17 +195,18 @@
 }
 
 .team-values__content h2 {
-  font-size: var(--text-2xl);
+  font-size: clamp(1.25rem, 3.5vw, var(--text-2xl));
   font-weight: 800;
   margin-bottom: var(--space-8);
+  text-wrap: balance;
 }
 
 .team-values__content ul {
-  text-align: right;
+  text-align: start;
 }
 
 .team-values__content li {
-  font-size: var(--text-lg);
+  font-size: clamp(var(--text-base), 2.2vw, var(--text-lg));
   color: var(--color-text-muted);
   padding: var(--space-3) 0;
   border-bottom: 1px solid var(--color-border-light);
@@ -92,12 +225,23 @@
 }
 
 .team-cta__box h2 {
-  font-size: var(--text-2xl);
+  font-size: clamp(1.25rem, 3.5vw, var(--text-2xl));
   font-weight: 800;
   margin-bottom: var(--space-4);
+  text-wrap: balance;
 }
 
 .team-cta__box p {
   color: var(--color-text-muted);
   margin-bottom: var(--space-8);
+}
+
+@media (max-width: 640px) {
+  .team-section-card {
+    padding: var(--space-8);
+  }
+
+  .team-cta__box {
+    padding: var(--space-10) var(--space-4);
+  }
 }
