@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
+import ScrollToTop from './components/ScrollToTop'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -19,6 +20,7 @@ function ClientsRouteRedirect() {
 function App() {
   return (
     <div className="app">
+      <ScrollToTop />
       <Header />
       <main className="main-content">
         <Routes>
