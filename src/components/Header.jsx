@@ -29,10 +29,17 @@ function Header() {
   }, [])
 
   useEffect(() => {
-    const prev = document.body.style.overflow
-    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    const root = document.documentElement
+    if (mobileOpen) {
+      root.classList.add('mobile-drawer-open')
+      document.body.classList.add('mobile-drawer-open')
+    } else {
+      root.classList.remove('mobile-drawer-open')
+      document.body.classList.remove('mobile-drawer-open')
+    }
     return () => {
-      document.body.style.overflow = prev
+      root.classList.remove('mobile-drawer-open')
+      document.body.classList.remove('mobile-drawer-open')
     }
   }, [mobileOpen])
 
@@ -94,25 +101,27 @@ function Header() {
               onClick={closeMenu}
               aria-label={t('header.closeMenu')}
             >
-              <X size={22} strokeWidth={2.25} aria-hidden="true" />
+              <X size={20} strokeWidth={2.25} aria-hidden="true" />
             </button>
           </div>
 
-          <nav className="mobile-drawer__nav">
-            <ul className="mobile-drawer__list">
-              {NAV_KEYS.map(({ pathKey, labelKey }) => (
-                <li key={pathKey} className="mobile-drawer__item">
-                  <Link
-                    to={path(pathKey)}
-                    className={`mobile-drawer__link ${isActive(pathKey) ? 'mobile-drawer__link--active' : ''}`}
-                    onClick={closeMenu}
-                  >
-                    {t(labelKey)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className="mobile-drawer__body">
+            <nav className="mobile-drawer__nav">
+              <ul className="mobile-drawer__list">
+                {NAV_KEYS.map(({ pathKey, labelKey }) => (
+                  <li key={pathKey} className="mobile-drawer__item">
+                    <Link
+                      to={path(pathKey)}
+                      className={`mobile-drawer__link ${isActive(pathKey) ? 'mobile-drawer__link--active' : ''}`}
+                      onClick={closeMenu}
+                    >
+                      {t(labelKey)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
 
           <div className="mobile-drawer__cta">
             <a
@@ -141,20 +150,22 @@ function Header() {
               </span>
               <span className="mobile-drawer__footer-lang-badge">{lang === 'ar' ? 'EN' : 'AR'}</span>
             </button>
-            <a href="tel:+96524915426" className="mobile-drawer__footer-link" onClick={closeMenu}>
-              <Phone size={18} strokeWidth={2} aria-hidden="true" />
-              <span>{t('header.drawerCall')}</span>
-            </a>
-            <a
-              href="https://wa.link/cszcj8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mobile-drawer__footer-link mobile-drawer__footer-link--wa"
-              onClick={closeMenu}
-            >
-              <MessageCircle size={18} strokeWidth={2} aria-hidden="true" />
-              <span>{t('header.drawerWhatsAppShort')}</span>
-            </a>
+            <div className="mobile-drawer__footer-actions">
+              <a href="tel:+96524915426" className="mobile-drawer__footer-link" onClick={closeMenu}>
+                <Phone size={18} strokeWidth={2} aria-hidden="true" />
+                <span>{t('header.drawerCall')}</span>
+              </a>
+              <a
+                href="https://wa.link/cszcj8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mobile-drawer__footer-link mobile-drawer__footer-link--wa"
+                onClick={closeMenu}
+              >
+                <MessageCircle size={18} strokeWidth={2} aria-hidden="true" />
+                <span>{t('header.drawerWhatsAppShort')}</span>
+              </a>
+            </div>
           </div>
         </aside>
       </div>,

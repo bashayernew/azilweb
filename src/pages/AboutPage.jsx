@@ -1,4 +1,4 @@
-import { useEffect, createElement } from 'react'
+import { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import {
   Target,
@@ -9,17 +9,6 @@ import {
   Handshake,
   Building2,
   Check,
-  Hotel,
-  Home,
-  Volume2,
-  Droplets,
-  GraduationCap,
-  Car,
-  Factory,
-  Bath,
-  Landmark,
-  Trees,
-  Waves,
 } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { publicAsset } from '../constants/serviceImages'
@@ -27,23 +16,6 @@ import '../components/shared.css'
 import './AboutPage.css'
 
 const STORY_IMAGE = '/roof2.webp'
-const PREVIOUS_PROJECTS_FEATURED_IMAGE = 'roof2.webp'
-
-/** One icon per project type — cycles if list grows */
-const PREVIOUS_PROJECT_ICONS = [
-  Hotel,
-  Building2,
-  Home,
-  Volume2,
-  Droplets,
-  GraduationCap,
-  Car,
-  Factory,
-  Bath,
-  Landmark,
-  Trees,
-  Waves,
-]
 
 const VALUE_KEYS = ['quality', 'transparency', 'professionalism', 'commitment']
 const VALUE_ICONS = {
@@ -54,29 +26,8 @@ const VALUE_ICONS = {
 }
 const PROCESS_KEYS = ['step1', 'step2', 'step3', 'step4', 'step5']
 
-function normalizePreviousProjects(raw) {
-  if (!Array.isArray(raw)) return []
-  return raw.map((item, i) => {
-    if (item && typeof item === 'object' && 'name' in item) {
-      return {
-        id: `pp-${i}`,
-        name: String(item.name),
-        highlight: Boolean(item.highlight),
-      }
-    }
-    if (typeof item === 'string') {
-      return {
-        id: `pp-${i}`,
-        name: item,
-        highlight: /كراون بلازا|Crowne|Crown Plaza/i.test(item),
-      }
-    }
-    return { id: `pp-${i}`, name: '', highlight: false }
-  })
-}
-
 function AboutPage() {
-  const { t, path, lang } = useLanguage()
+  const { t, path } = useLanguage()
   const location = useLocation()
 
   const categoryList = (() => {
@@ -88,12 +39,6 @@ function AboutPage() {
     const list = t('about.partnersSuccessList')
     return Array.isArray(list) ? list : []
   })()
-
-  const previousProjects = normalizePreviousProjects(t('about.previousProjects'))
-  const featuredIdx = previousProjects.findIndex((p) => p.highlight)
-  const featuredProject = featuredIdx >= 0 ? previousProjects[featuredIdx] : null
-  const otherProjects =
-    featuredIdx >= 0 ? previousProjects.filter((_, i) => i !== featuredIdx) : previousProjects
 
   const heroStats = [
     { value: t('home.statYearsVal'), label: t('home.statYears') },
@@ -279,84 +224,6 @@ function AboutPage() {
                 <span className="about-page__partners-success__name">{name}</span>
               </li>
             ))}
-          </ul>
-        </div>
-      </section>
-
-      <section
-        className="about-page__previous-projects"
-        aria-labelledby="previous-projects-title"
-        dir={lang === 'ar' ? 'rtl' : 'ltr'}
-        lang={lang}
-      >
-        <div className="about-page__previous-projects__bg" aria-hidden="true" />
-        <div className="about-page__previous-projects__glow" aria-hidden="true" />
-        <div className="container">
-          <div className="section-title about-page__previous-projects__head reveal">
-            <span className="section-title__overline">{t('about.previousProjectsOverline')}</span>
-            <h2 id="previous-projects-title" className="section-title__heading">
-              {t('about.previousProjectsTitle')}
-            </h2>
-            <p className="section-title__sub about-page__previous-projects__intro">
-              {t('about.previousProjectsSub')}
-            </p>
-          </div>
-
-          {featuredProject ? (
-            <article className="about-page__previous-projects__showcase reveal">
-              <div className="about-page__previous-projects__showcase-media">
-                <img
-                  src={publicAsset(PREVIOUS_PROJECTS_FEATURED_IMAGE)}
-                  alt=""
-                  className="about-page__previous-projects__showcase-img"
-                  loading="lazy"
-                  decoding="async"
-                  width={960}
-                  height={640}
-                />
-                <div className="about-page__previous-projects__showcase-scrim" aria-hidden="true" />
-                <div className="about-page__previous-projects__showcase-icon-wrap" aria-hidden="true">
-                  <div className="about-page__previous-projects__showcase-icon-ring">
-                    <div className="about-page__previous-projects__showcase-icon-blob">
-                      {createElement(PREVIOUS_PROJECT_ICONS[featuredIdx % PREVIOUS_PROJECT_ICONS.length], {
-                        size: 36,
-                        strokeWidth: 1.35,
-                      })}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="about-page__previous-projects__showcase-body">
-                <span className="about-page__previous-projects__showcase-badge">
-                  {t('about.previousProjectsFeaturedBadge')}
-                </span>
-                <h3 className="about-page__previous-projects__showcase-title">{featuredProject.name}</h3>
-              </div>
-            </article>
-          ) : null}
-
-          <ul
-            className={`about-page__previous-projects__grid reveal${featuredProject ? ' about-page__previous-projects__grid--after-showcase' : ''}`}
-          >
-            {otherProjects.map((project) => {
-              if (!project.name.trim()) return null
-              const i = previousProjects.findIndex((p) => p.id === project.id)
-              const IconCmp = PREVIOUS_PROJECT_ICONS[Math.max(0, i) % PREVIOUS_PROJECT_ICONS.length]
-              return (
-                <li key={project.id} className="about-page__previous-projects__card">
-                  <div className="about-page__previous-projects__symbol" aria-hidden="true">
-                    <div className="about-page__previous-projects__icon-ring">
-                      <div className="about-page__previous-projects__icon-blob">
-                        <IconCmp size={30} strokeWidth={1.35} />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="about-page__previous-projects__card-inner">
-                    <p className="about-page__previous-projects__name">{project.name}</p>
-                  </div>
-                </li>
-              )
-            })}
           </ul>
         </div>
       </section>
