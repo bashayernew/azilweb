@@ -1,14 +1,13 @@
 import { useLanguage } from '../contexts/LanguageContext'
+import { WHATSAPP_URL } from '../constants/socialLinks'
 import './WhatsAppButton.css'
-
-const WHATSAPP_LINK = 'https://wa.link/cszcj8'
 
 function WhatsAppButton() {
   const { t } = useLanguage()
 
   return (
     <a
-      href={WHATSAPP_LINK}
+      href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-float"

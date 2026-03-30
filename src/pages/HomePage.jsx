@@ -17,6 +17,7 @@ import {
 import { useLanguage } from '../contexts/LanguageContext'
 import { publicAsset, SERVICE_CARD_IMAGES } from '../constants/serviceImages'
 import { HERO_HOME_MEDIA } from '../constants/heroHome'
+import { WHATSAPP_URL } from '../constants/socialLinks'
 import HeroMedia from '../components/HeroMedia'
 import OurTeamSection from '../components/OurTeamSection'
 import './HomePage.css'
@@ -99,7 +100,7 @@ function HomePage() {
               <p className="hero__subtitle">{t('home.heroSubtitle')}</p>
               <div className="hero__ctas">
                 <a
-                  href="https://wa.link/cszcj8"
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn--primary btn--lg"
@@ -358,7 +359,7 @@ function HomePage() {
               {t('home.ctaText')}
             </p>
             <div className="cta-box__actions">
-              <a href="https://wa.link/cszcj8" target="_blank" rel="noopener noreferrer" className="btn btn--accent btn--lg">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn--accent btn--lg">
                 {t('home.ctaWhatsApp')}
               </a>
               <Link to={path('contact')} className="btn btn--outline btn--lg">

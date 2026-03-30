@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import { Link, useLocation } from 'react-router-dom'
 import { X, Phone, MessageCircle } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
+import { WHATSAPP_URL } from '../constants/socialLinks'
 import './Header.css'
 
 const NAV_KEYS = [
@@ -125,7 +126,7 @@ function Header() {
 
           <div className="mobile-drawer__cta">
             <a
-              href="https://wa.link/cszcj8"
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn--primary btn--lg mobile-drawer__cta-btn"
@@ -156,7 +157,7 @@ function Header() {
                 <span>{t('header.drawerCall')}</span>
               </a>
               <a
-                href="https://wa.link/cszcj8"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mobile-drawer__footer-link mobile-drawer__footer-link--wa"
@@ -210,7 +211,7 @@ function Header() {
               {lang === 'ar' ? 'EN' : 'AR'}
             </button>
             <a
-              href="https://wa.link/cszcj8"
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="header__cta btn btn--primary"

@@ -12,6 +12,7 @@ import PageHero from '../components/PageHero'
 import ImagePlaceholder from '../components/ImagePlaceholder'
 import { publicAsset, SERVICE_DETAIL_IMAGES } from '../constants/serviceImages'
 import { useLanguage } from '../contexts/LanguageContext'
+import { WHATSAPP_URL } from '../constants/socialLinks'
 import '../components/shared.css'
 import './ServicesPage.css'
 
@@ -126,7 +127,7 @@ function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                  <a href="https://wa.link/cszcj8" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn--primary">
                     {t('services.inquireService')}
                   </a>
                 </div>
@@ -141,7 +142,7 @@ function ServicesPage() {
           <div className="services-cta__box reveal">
             <h2>{t('services.ctaTitle')}</h2>
             <p>{t('services.ctaText')}</p>
-            <a href="https://wa.link/cszcj8" target="_blank" rel="noopener noreferrer" className="btn btn--accent btn--lg">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn--accent btn--lg">
               {t('services.ctaWhatsApp')}
             </a>
           </div>

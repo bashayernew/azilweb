@@ -3,6 +3,7 @@ import { Briefcase, HardHat, CheckCircle, Phone } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import { publicAsset } from '../constants/serviceImages'
 import { useLanguage } from '../contexts/LanguageContext'
+import { WHATSAPP_URL } from '../constants/socialLinks'
 import '../components/shared.css'
 import './TeamPage.css'
 
@@ -99,7 +100,7 @@ function TeamPage() {
           <div className="team-cta__box reveal">
             <h2>{t('team.ctaTitle')}</h2>
             <p>{t('team.ctaText')}</p>
-            <a href="https://wa.link/cszcj8" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--lg">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--lg">
               {t('team.ctaWhatsApp')}
             </a>
           </div>

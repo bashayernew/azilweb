@@ -2,7 +2,13 @@ import { useState } from 'react'
 import { Phone, MessageCircle, Mail, MapPin } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import { useLanguage } from '../contexts/LanguageContext'
-import { SOCIAL_LINKS, GOOGLE_MAPS_URL, GOOGLE_MAPS_EMBED_URL } from '../constants/socialLinks'
+import {
+  SOCIAL_LINKS,
+  GOOGLE_MAPS_URL,
+  GOOGLE_MAPS_EMBED_URL,
+  WHATSAPP_URL,
+  WHATSAPP_DISPLAY,
+} from '../constants/socialLinks'
 import '../components/shared.css'
 import './ContactPage.css'
 
@@ -22,7 +28,7 @@ function ContactPage() {
   const handleSubmit = (e) => {
     e.preventDefault()
     const msg = `${t('contact.waMessageIntro')} ${formData.name}\n${t('contact.waMessagePhone')}: ${formData.phone}\n${t('contact.waMessageInquiry')}: ${formData.message}`
-    const waUrl = `https://wa.link/cszcj8?text=${encodeURIComponent(msg)}`
+    const waUrl = `${WHATSAPP_URL}?text=${encodeURIComponent(msg)}`
     window.open(waUrl, '_blank')
   }
 
@@ -49,8 +55,8 @@ function ContactPage() {
                 <div className="contact-card">
                   <div className="contact-card__icon"><MessageCircle size={22} strokeWidth={1.5} /></div>
                   <h3>{t('contact.whatsapp')}</h3>
-                  <a href="https://wa.link/cszcj8" target="_blank" rel="noopener noreferrer">
-                    +965 95595244
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                    {WHATSAPP_DISPLAY}
                   </a>
                 </div>
                 <div className="contact-card">

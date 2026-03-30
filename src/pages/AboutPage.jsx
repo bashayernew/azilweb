@@ -12,6 +12,7 @@ import {
 } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { publicAsset } from '../constants/serviceImages'
+import { WHATSAPP_URL } from '../constants/socialLinks'
 import '../components/shared.css'
 import './AboutPage.css'
 
@@ -80,7 +81,7 @@ function AboutPage() {
             <p className="about-page__hero-trust">{t('clients.subtitle')}</p>
             <div className="about-page__hero-cta">
               <a
-                href="https://wa.link/cszcj8"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn--primary btn--lg"
@@ -278,7 +279,7 @@ function AboutPage() {
             <p>{t('about.ctaText')}</p>
             <div className="about-page__cta-actions">
               <a
-                href="https://wa.link/cszcj8"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn--accent btn--lg"
