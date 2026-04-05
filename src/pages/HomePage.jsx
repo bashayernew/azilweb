@@ -8,6 +8,7 @@ import {
   Wrench,
   MapPin,
   Building2,
+  BrickWall,
   Home,
   Waves,
   Droplets,
@@ -35,7 +36,7 @@ const PROJECT_GALLERY = [
   { id: 'acoustic', src: '/sound2.webp', titleKey: 'home.acoustic', descKey: 'home.acousticDesc' },
 ]
 
-const SERVICE_KEYS = ['basement', 'roofs', 'pools', 'tanks', 'acDucts', 'acoustic']
+const SERVICE_KEYS = ['basement', 'foundations', 'roofs', 'pools', 'tanks', 'acDucts', 'acoustic']
 
 const WHY_US_KEYS = ['experience', 'quality', 'supervision', 'speed', 'aftercare', 'coverage']
 
@@ -50,6 +51,7 @@ const ICON_MAP = {
 
 const SERVICE_ICON_MAP = {
   basement: Building2,
+  foundations: BrickWall,
   roofs: Home,
   pools: Waves,
   tanks: Droplets,
@@ -185,9 +187,18 @@ function HomePage() {
               const imgSrc = typeof imgConfig === 'string' ? imgConfig : null
               const benefitsRaw = t(`home.services.${key}.benefits`)
               const benefits = Array.isArray(benefitsRaw) ? benefitsRaw : null
+              const isTanksSingle = key === 'tanks' && imgSrc
               return (
-                <div key={key} className={`service-card reveal`} style={{ animationDelay: `${i * 0.05}s` }}>
-                  <div className={`service-card__media${dualSrcs ? ' service-card__media--dual' : ''}`}>
+                <div
+                  key={key}
+                  className={`service-card reveal${isTanksSingle ? ' service-card--tanks' : ''}`}
+                  style={{ animationDelay: `${i * 0.05}s` }}
+                >
+                  <div
+                    className={`service-card__media${dualSrcs ? ' service-card__media--dual' : ''}${
+                      isTanksSingle ? ' service-card__media--tanks-contain' : ''
+                    }`}
+                  >
                     <div className="service-card__media-inner">
                       {dualSrcs ? (
                         <div className="service-card__dual-frame">

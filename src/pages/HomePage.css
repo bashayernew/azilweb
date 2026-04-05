@@ -300,6 +300,43 @@
   transform: scale(1.05);
 }
 
+/* Tanks card: show full tank (no aggressive crop) — object-fit contain */
+.service-card--tanks .service-card__media--tanks-contain {
+  background: color-mix(in srgb, var(--color-bg-alt) 88%, #f5f5f4 12%);
+}
+
+.service-card--tanks .service-card__media--tanks-contain .service-card__media-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(8px, 2vw, 14px);
+}
+
+.service-card--tanks:hover .service-card__media--tanks-contain .service-card__media-inner {
+  transform: none;
+}
+
+.service-card--tanks .service-card__media--tanks-contain .service-card__img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.service-card--tanks .service-card__media--tanks-contain .service-card__img-gradient {
+  opacity: 0.5;
+}
+
+.service-card--tanks .service-card__media--tanks-contain .service-card__img-hover {
+  background: rgba(0, 0, 0, 0);
+}
+
+.service-card--tanks:hover .service-card__media--tanks-contain .service-card__img-hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
 .service-card__img {
   width: 100%;
   height: 100%;

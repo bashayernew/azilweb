@@ -96,6 +96,17 @@
         "desc": "Integrated solutions for insulating basements and cellars from moisture and water leaks with high-quality materials.",
         "anchor": "basement-insulation"
       },
+      "foundations": {
+        "title": "Foundation Insulation",
+        "desc": "Professional foundation and footing insulation to protect structures from moisture and seepage.",
+        "benefits": [
+          "Protection from moisture and groundwater",
+          "Reinforced waterproofing in leak-prone areas",
+          "Strong, certified insulation materials",
+          "Longer service life and structural durability"
+        ],
+        "anchor": "foundation-insulation"
+      },
       "roofs": {
         "title": "Roof & Annex Insulation",
         "desc": "Insulation for roofs, annexes, bathrooms, and kitchens against heat and moisture.",
@@ -213,22 +224,85 @@
       "basement": {
         "title": "Basement & Cellar Insulation",
         "desc": "We provide integrated solutions for insulating basements and cellars from moisture and water leaks. We use high-quality, waterproof materials that ensure long-term building protection.",
-        "benefits": ["Protection from moisture and leaks", "High-quality materials", "Leak-proof guarantee", "Professional execution"]
+        "benefits": ["Protection from moisture and leaks", "High-quality materials", "Leak-proof guarantee", "Professional execution"],
+        "img1Alt": "Basement surface preparation, drilling, and treatment",
+        "img2Alt": "Basement wall treatment and waterproofing"
+      },
+      "foundations": {
+        "title": "Foundation Insulation",
+        "desc": "We deliver specialized foundation and footing waterproofing to shield buildings from moisture, groundwater, and soil-side leaks. We rely on high-grade materials and precise execution for long-term protection and structural stability.",
+        "benefits": [
+          "Waterproofing foundations and footings against moisture and groundwater",
+          "Protecting concrete from ground-side infiltration",
+          "Strong, certified insulation systems",
+          "Precision execution for durable protection"
+        ]
       },
       "roofs": {
         "title": "Roof, Annex, Bathroom & Kitchen Insulation",
         "desc": "Comprehensive insulation for roofs, annexes, bathrooms, and kitchens against heat and moisture. We help maintain comfort and reduce energy use.",
-        "benefits": ["Thermal and waterproofing", "Leak protection", "Reduced energy consumption", "Safe materials"]
+        "benefits": ["Thermal and waterproofing", "Leak protection", "Reduced energy consumption", "Safe materials"],
+        "subsection1": {
+          "title": "Surface preparation & treatment",
+          "intro": "We prepare every roof carefully before insulation: certified cementitious work, testing, and professional screeding for perfect adhesion and long-term performance.",
+          "items": [
+            "Cementitious surface treatment to prime the roof for insulation",
+            "Surface preparation and strengthening before application",
+            "Roof water testing to detect leaks before insulation",
+            "Screed pouring for accurate leveling and a true plane"
+          ],
+          "img1Alt": "Image 1 — roof surface preparation",
+          "img2Alt": "Image 2 — roof surface preparation",
+          "img3Alt": "Image 3 — roof surface preparation"
+        },
+        "subsection2": {
+          "title": "Roof insulation & protection systems",
+          "intro": "Specialized insulation and protection using trusted materials and modern methods—shielding the building from water and heat while saving energy.",
+          "items": [
+            "Jitarov coating for waterproofing and protection",
+            "Jitarov Kirby coating for durability and long-term protection",
+            "Roof foam pour for thermal insulation and energy savings",
+            "American spray-applied roof insulation with proven techniques"
+          ],
+          "img1Alt": "Image 1 — roof insulation systems",
+          "img2Alt": "Image 2 — roof insulation systems",
+          "img3Alt": "Image 3 — roof insulation systems"
+        }
       },
       "pools": {
         "title": "Swimming Pool & Garden Insulation",
         "desc": "Professional insulation for swimming pools and gardens to prevent leaks and ensure continuous operation. We use specialized materials resistant to water and chlorine.",
-        "benefits": ["Leak prevention", "Chemical resistance", "Long lifespan", "Low maintenance"]
+        "benefits": ["Leak prevention", "Chemical resistance", "Long lifespan", "Low maintenance"],
+        "process": {
+          "title": "Swimming pool construction stages",
+          "step1": {
+            "title": "Pool shell preparation",
+            "mediaAlt": "Swimming pool shell preparation"
+          },
+          "step2": {
+            "title": "Waterproofing & treatment",
+            "mediaAlt": "Pool waterproofing and surface treatment"
+          },
+          "step3": {
+            "title": "Water testing",
+            "mediaAlt": "Pool water testing after waterproofing"
+          },
+          "step4": {
+            "title": "Tile installation",
+            "mediaAlt": "Swimming pool tile installation"
+          },
+          "step5": {
+            "title": "Final finish",
+            "mediaAlt": "Finished swimming pool"
+          }
+        }
       },
       "tanks": {
         "title": "Water Tank & Garden Insulation",
         "desc": "Protecting water tanks and gardens from leaks and corrosion with specialized insulation materials. We ensure water safety and structure protection.",
-        "benefits": ["Tank protection", "Corrosion prevention", "Garden insulation", "Water-safe materials"]
+        "benefits": ["Tank protection", "Corrosion prevention", "Garden insulation", "Water-safe materials"],
+        "img1Alt": "Water tank — full view of structure and access ladder",
+        "img2Alt": "Water tank — secondary view showing details and access"
       },
       "acDucts": {
         "title": "AC & Duct Insulation",
