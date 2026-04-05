@@ -7,6 +7,7 @@ import {
   Droplets,
   Snowflake,
   Volume2,
+  Flame,
   Check,
 } from 'lucide-react'
 import PageHero from '../components/PageHero'
@@ -17,11 +18,12 @@ import { WHATSAPP_URL } from '../constants/socialLinks'
 import '../components/shared.css'
 import './ServicesPage.css'
 
-const SERVICE_KEYS = ['basement', 'foundations', 'roofs', 'pools', 'tanks', 'acDucts', 'acoustic']
+const SERVICE_KEYS = ['basement', 'foundations', 'roofs', 'bitumen', 'pools', 'tanks', 'acDucts', 'acoustic']
 const ANCHORS = {
   basement: 'basement-insulation',
   foundations: 'foundation-insulation',
   roofs: 'roof-insulation',
+  bitumen: 'bitumen-insulation',
   pools: 'pool-insulation',
   tanks: 'tank-insulation',
   acDucts: 'ac-duct-insulation',
@@ -31,6 +33,7 @@ const SERVICE_ICONS = {
   basement: Building2,
   foundations: BrickWall,
   roofs: Home,
+  bitumen: Flame,
   pools: Waves,
   tanks: Droplets,
   acDucts: Snowflake,
@@ -284,13 +287,16 @@ function ServicesPage() {
             const detailTitle = t(`services.detail.${key}.title`)
             const isBasementProcess = key === 'basement' && dualSrcs
             const isTanksContain = key === 'tanks' && dualSrcs
+            const isBitumenContain = key === 'bitumen' && singleSrc
             return (
               <article
                 key={key}
                 id={ANCHORS[key]}
                 className={`service-detail reveal${isBasementProcess ? ' service-detail--basement-process' : ''}${
                   isTanksContain ? ' service-detail--tanks-contain' : ''
-                } ${i % 2 === 1 ? 'service-detail--reverse' : ''}`}
+                }${isBitumenContain ? ' service-detail--bitumen-contain' : ''} ${
+                  i % 2 === 1 ? 'service-detail--reverse' : ''
+                }`}
               >
                 <div className="service-detail__visual">
                   {dualSrcs ? (
@@ -337,11 +343,17 @@ function ServicesPage() {
                       </div>
                     </div>
                   ) : singleSrc ? (
-                    <div className="service-detail__media">
+                    <div
+                      className={`service-detail__media${
+                        isBitumenContain ? ' service-detail__media--bitumen' : ''
+                      }`}
+                    >
                       <img
                         src={publicAsset(singleSrc)}
                         alt={detailTitle}
-                        className="service-detail__img"
+                        className={`service-detail__img${
+                          isBitumenContain ? ' service-detail__img--bitumen-contain' : ''
+                        }`}
                         loading="lazy"
                         decoding="async"
                       />
@@ -356,6 +368,12 @@ function ServicesPage() {
                 <div className="service-detail__content">
                   <h2 className="service-detail__title">{t(`services.detail.${key}.title`)}</h2>
                   <p className="service-detail__desc">{t(`services.detail.${key}.desc`)}</p>
+                  {key === 'bitumen' ? (
+                    <>
+                      <p className="service-detail__desc">{t('services.detail.bitumen.desc2')}</p>
+                      <p className="service-detail__desc">{t('services.detail.bitumen.desc3')}</p>
+                    </>
+                  ) : null}
                   <ul className="service-detail__benefits">
                     {(() => {
                       const benefits = t(`services.detail.${key}.benefits`)

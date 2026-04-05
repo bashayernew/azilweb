@@ -4,7 +4,7 @@
  */
 export const HERO_HOME_MEDIA = {
   /** Primary hero loop (muted, for autoplay) */
-  video: 'azilherosction.mp4',
+  video: 'hrosectionazil.mp4',
   /** Poster + image fallback (same file is fine) */
   poster: 'roof2.webp',
   fallback: 'roof2.webp',

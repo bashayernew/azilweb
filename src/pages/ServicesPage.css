@@ -197,6 +197,33 @@
   filter: brightness(1.02) contrast(1.03) saturate(1.02);
 }
 
+/* Bitumen rolls — single image, same asset as home thermal; full frame visible */
+.service-detail--bitumen-contain .service-detail__media--bitumen {
+  max-width: 440px;
+  width: 100%;
+  padding: clamp(12px, 2.5vw, 18px);
+  background: color-mix(in srgb, #f5f5f4 82%, var(--color-bg-alt) 18%);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 10px 28px rgba(28, 25, 23, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+}
+
+.service-detail--bitumen-contain .service-detail__media--bitumen .service-detail__img--bitumen-contain {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: min(320px, 52vw);
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  filter: brightness(1.02) contrast(1.03);
+}
+
 @media (min-width: 768px) {
   .service-detail--tanks-contain .service-detail__dual--tanks {
     grid-template-columns: 1fr 1fr;
@@ -356,6 +383,14 @@
   }
 
   .service-detail--tanks-contain .service-detail__visual {
+    order: 2;
+  }
+
+  .service-detail--bitumen-contain .service-detail__content {
+    order: 1;
+  }
+
+  .service-detail--bitumen-contain .service-detail__visual {
     order: 2;
   }
 

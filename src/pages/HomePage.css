@@ -337,6 +337,88 @@
   background: rgba(0, 0, 0, 0.06);
 }
 
+/* Bitumen rolls — same asset as projects thermal; show torch + roll */
+.service-card--bitumen .service-card__media--bitumen-contain {
+  background: color-mix(in srgb, var(--color-bg-alt) 88%, #f5f5f4 12%);
+}
+
+.service-card--bitumen .service-card__media--bitumen-contain .service-card__media-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(8px, 2vw, 12px);
+}
+
+.service-card--bitumen:hover .service-card__media--bitumen-contain .service-card__media-inner {
+  transform: none;
+}
+
+.service-card--bitumen .service-card__media--bitumen-contain .service-card__img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.service-card--bitumen .service-card__media--bitumen-contain .service-card__img-gradient {
+  opacity: 0.45;
+}
+
+.service-card--bitumen .service-card__media--bitumen-contain .service-card__img-hover {
+  background: rgba(0, 0, 0, 0);
+}
+
+.service-card--bitumen:hover .service-card__media--bitumen-contain .service-card__img-hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* Expandable copy — bitumen service card */
+.service-card__details {
+  margin-top: var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+  background: color-mix(in srgb, var(--color-bg-card) 96%, var(--color-bg-alt) 4%);
+  overflow: hidden;
+}
+
+.service-card__details-summary {
+  cursor: pointer;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  list-style: none;
+}
+
+.service-card__details-summary::-webkit-details-marker {
+  display: none;
+}
+
+.service-card__details-inner {
+  padding: 0 var(--space-3) var(--space-3);
+}
+
+.service-card__details-text {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.service-card__details-bullets {
+  margin: var(--space-3) 0 0;
+  padding-inline-start: 1.15rem;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.service-card__details-bullets li {
+  margin-bottom: var(--space-1);
+}
+
 .service-card__img {
   width: 100%;
   height: 100%;
@@ -730,16 +812,124 @@
   background: rgba(0, 0, 0, 0.14);
 }
 
-.project-card h3 {
+.project-card__body {
   padding: var(--space-6);
-  font-size: var(--text-lg);
-  font-weight: 700;
+  display: flex;
+  flex-direction: column;
 }
 
-.project-card p {
-  padding: 0 var(--space-6) var(--space-6);
+.project-card__body h3 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.project-card__desc {
+  margin: 0 0 var(--space-2);
   font-size: var(--text-sm);
   color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.project-card__desc-extra {
+  margin: var(--space-3) 0 0;
+  font-size: 0.8125rem;
+  color: color-mix(in srgb, var(--color-text-muted) 88%, var(--color-text) 12%);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-card__details {
+  margin-top: var(--space-2);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+  background: color-mix(in srgb, var(--color-bg-alt) 88%, var(--color-bg-card) 12%);
+  overflow: hidden;
+}
+
+.project-card__details-summary {
+  cursor: pointer;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  list-style: none;
+}
+
+.project-card__details-summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-card__details-inner {
+  padding: 0 var(--space-3) var(--space-3);
+}
+
+.project-card__details-text {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.project-card__details-bullets {
+  margin: var(--space-3) 0 0;
+  padding-inline-start: 1.15rem;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.project-card__details-bullets li {
+  margin-bottom: var(--space-1);
+}
+
+.project-card__link {
+  display: inline-block;
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: color var(--transition-fast), padding-inline-start var(--transition-fast);
+}
+
+.project-card__link:hover {
+  color: var(--color-primary-dark);
+  padding-inline-start: var(--space-1);
+}
+
+/* Projects: thermal card — same asset as bitumen service; gentler crop */
+.project-card--thermal .project-card__media--thermal-contain {
+  background: color-mix(in srgb, var(--color-bg-alt) 88%, #f5f5f4 12%);
+}
+
+.project-card--thermal .project-card__media--thermal-contain .project-card__media-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(8px, 2vw, 12px);
+}
+
+.project-card--thermal:hover .project-card__media--thermal-contain .project-card__media-inner {
+  transform: none;
+}
+
+.project-card--thermal .project-card__media--thermal-contain .project-card__img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.project-card--thermal .project-card__media--thermal-contain .project-card__img-gradient {
+  opacity: 0.45;
 }
 
 /* CTA Section */
@@ -865,13 +1055,12 @@
     padding: var(--space-6);
   }
 
-  .project-card h3 {
-    padding: var(--space-5) var(--space-5) 0;
-    font-size: clamp(var(--text-base), 3.5vw, var(--text-lg));
+  .project-card__body {
+    padding: var(--space-5);
   }
 
-  .project-card p {
-    padding: var(--space-3) var(--space-5) var(--space-5);
+  .project-card__body h3 {
+    font-size: clamp(var(--text-base), 3.5vw, var(--text-lg));
   }
 }
 

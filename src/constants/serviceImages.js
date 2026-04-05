@@ -3,9 +3,10 @@
  * string = single image; string[] = dual framed collage (same order as UI).
  */
 export const SERVICE_CARD_IMAGES = {
-  basement: '/serdab2.webp',
+  basement: '/roof2.webp',
   foundations: '/gawa3dd.webp',
-  roofs: '/roof2.webp',
+  roofs: '/roof3.webp',
+  bitumen: '/azilharary.webp',
   pools: ['/pool33.webp', '/pool3.webp'],
   tanks: '/hadaik2.webp',
   acDucts: '/duct2.webp',
@@ -17,6 +18,7 @@ export const SERVICE_DETAIL_IMAGES = {
   ...SERVICE_CARD_IMAGES,
   acDucts: '/duct1.webp',
   roofs: '/roof1.webp',
+  bitumen: '/azilharary.webp',
   basement: ['/serdab.webp', '/serdab2.webp'],
   /** Home card uses one image; detail keeps dual collage */
   foundations: ['/gawa3dd.webp', '/gawa3d.webp'],

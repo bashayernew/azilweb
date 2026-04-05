@@ -38,7 +38,7 @@
   "home": {
     "heroVideoAria": "Showcase of insulation work and project execution",
     "heroBadge": "A Leading Kuwaiti Company Since 2012",
-    "heroTitle": "Professional Insulation & Construction Solutions in Kuwait",
+    "heroTitle": "Professional waterproofing, thermal & acoustic insulation solutions in Kuwait",
     "heroSubtitle": "We provide waterproofing, thermal, and acoustic insulation services with high quality standards, supported by a skilled technical team and strong experience in the construction sector.",
     "requestInspection": "Request Inspection",
     "contactNow": "Contact Now",
@@ -80,9 +80,10 @@
     "waterproofing": "Waterproofing Insulation",
     "waterproofingVisual": "Waterproofing",
     "waterproofingDesc": "Protecting buildings from moisture and leaks",
+    "waterproofingDescExtra": "Cementitious waterproofing: a high-performance cementitious mix for basements, swimming pools, and below-grade walls—with strong chemical resistance.",
     "thermal": "Thermal Insulation",
     "thermalVisual": "Thermal",
-    "thermalDesc": "Reducing energy consumption and improving efficiency",
+    "thermalDesc": "Professional insulation using bitumen rolls to protect buildings from water ingress and moisture.",
     "acoustic": "Acoustic Insulation",
     "acousticVisual": "Acoustic",
     "acousticDesc": "Achieving comfort and tranquility in spaces",
@@ -111,6 +112,19 @@
         "title": "Roof & Annex Insulation",
         "desc": "Insulation for roofs, annexes, bathrooms, and kitchens against heat and moisture.",
         "anchor": "roof-insulation"
+      },
+      "bitumen": {
+        "title": "Thermal insulation",
+        "desc": "Professional insulation using bitumen rolls to protect buildings from water ingress and moisture.",
+        "descExtended": "Torch-on bitumen membrane is one of the most widely used waterproofing systems. It protects basements, roofs and annexes, bathrooms, and kitchens from moisture and leaks. It is durable (4 mm thickness, 200/250 polyester reinforcement), installed in rolls after priming the substrate for adhesion, followed by a protective finish layer.",
+        "cardBullets": [
+          "Strong protection against water ingress",
+          "Suitable for roofs, basements, and wet areas",
+          "High-quality 4 mm membranes",
+          "Professional installation with primer"
+        ],
+        "moreLabel": "Show details",
+        "anchor": "bitumen-insulation"
       },
       "pools": {
         "title": "Swimming Pool & Garden Insulation",
@@ -268,6 +282,19 @@
           "img2Alt": "Image 2 — roof insulation systems",
           "img3Alt": "Image 3 — roof insulation systems"
         }
+      },
+      "bitumen": {
+        "title": "Thermal insulation (bitumen rolls)",
+        "desc": "We deliver advanced waterproofing using bitumen rolls to shield buildings from moisture and leaks, with top-tier execution quality.",
+        "desc2": "Bitumen roll waterproofing is one of the most common solutions, providing effective protection for roofs, basements, annexes, bathrooms, and kitchens—helping preserve structural integrity.",
+        "desc3": "We install 4 mm membranes (200/250 polyester) after surface preparation and primer application for full adhesion, then apply a protective layer for long life and high performance.",
+        "benefits": [
+          "High resistance to water and moisture",
+          "Suitable for many roof and wet-area applications",
+          "Certified, high-quality materials",
+          "Long service life",
+          "Professional execution"
+        ]
       },
       "pools": {
         "title": "Swimming Pool & Garden Insulation",

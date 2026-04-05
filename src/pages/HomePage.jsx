@@ -14,6 +14,7 @@ import {
   Droplets,
   Snowflake,
   Volume2,
+  Flame,
 } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { publicAsset, SERVICE_CARD_IMAGES } from '../constants/serviceImages'
@@ -31,8 +32,20 @@ const PROJECT_GALLERY = [
     srcs: ['/pool1.webp', '/pool11.webp'],
     titleKey: 'home.waterproofing',
     descKey: 'home.waterproofingDesc',
+    descExtraKey: 'home.waterproofingDescExtra',
   },
-  { id: 'thermal', src: '/azilharary.webp', titleKey: 'home.thermal', descKey: 'home.thermalDesc' },
+  {
+    id: 'thermal',
+    src: '/azilharary.webp',
+    titleKey: 'home.thermal',
+    descKey: 'home.thermalDesc',
+    expanded: {
+      moreKey: 'home.services.bitumen.moreLabel',
+      bodyKey: 'home.services.bitumen.descExtended',
+      bulletsKey: 'home.services.bitumen.cardBullets',
+      linkAnchorKey: 'home.services.bitumen.anchor',
+    },
+  },
   { id: 'acoustic', src: '/sound2.webp', titleKey: 'home.acoustic', descKey: 'home.acousticDesc' },
 ]
 
@@ -57,6 +70,7 @@ const SERVICE_ICON_MAP = {
   tanks: Droplets,
   acDucts: Snowflake,
   acoustic: Volume2,
+  bitumen: Flame,
 }
 
 function HomePage() {
@@ -188,16 +202,19 @@ function HomePage() {
               const benefitsRaw = t(`home.services.${key}.benefits`)
               const benefits = Array.isArray(benefitsRaw) ? benefitsRaw : null
               const isTanksSingle = key === 'tanks' && imgSrc
+              const isBitumenSingle = key === 'bitumen' && imgSrc
               return (
                 <div
                   key={key}
-                  className={`service-card reveal${isTanksSingle ? ' service-card--tanks' : ''}`}
+                  className={`service-card reveal${isTanksSingle ? ' service-card--tanks' : ''}${
+                    isBitumenSingle ? ' service-card--bitumen' : ''
+                  }`}
                   style={{ animationDelay: `${i * 0.05}s` }}
                 >
                   <div
                     className={`service-card__media${dualSrcs ? ' service-card__media--dual' : ''}${
                       isTanksSingle ? ' service-card__media--tanks-contain' : ''
-                    }`}
+                    }${isBitumenSingle ? ' service-card__media--bitumen-contain' : ''}`}
                   >
                     <div className="service-card__media-inner">
                       {dualSrcs ? (
@@ -235,6 +252,30 @@ function HomePage() {
                   <div className="service-card__body">
                     <h3 className="service-card__title">{t(`home.services.${key}.title`)}</h3>
                     <p className="service-card__desc">{t(`home.services.${key}.desc`)}</p>
+                    {key === 'bitumen' ? (
+                      <>
+                        <details className="service-card__details">
+                          <summary className="service-card__details-summary">
+                            {t('home.services.bitumen.moreLabel')}
+                          </summary>
+                          <div className="service-card__details-inner">
+                            <p className="service-card__details-text">
+                              {t('home.services.bitumen.descExtended')}
+                            </p>
+                            {(() => {
+                              const bb = t('home.services.bitumen.cardBullets')
+                              return Array.isArray(bb) ? (
+                                <ul className="service-card__details-bullets">
+                                  {bb.map((line, bi) => (
+                                    <li key={`${key}-eb-${bi}`}>{line}</li>
+                                  ))}
+                                </ul>
+                              ) : null
+                            })()}
+                          </div>
+                        </details>
+                      </>
+                    ) : null}
                     {benefits && (
                       <ul className="service-card__bullets">
                         {benefits.map((line, bi) => (
@@ -316,12 +357,19 @@ function HomePage() {
           </div>
           <div className="projects-grid reveal">
             {PROJECT_GALLERY.map((item) => {
-              const { id, titleKey, descKey } = item
+              const { id, titleKey, descKey, descExtraKey, expanded } = item
               const dualSrcs = item.srcs
               const singleSrc = item.src
+              const expandBullets = expanded ? t(expanded.bulletsKey) : null
+              const bulletsList = Array.isArray(expandBullets) ? expandBullets : null
+              const isThermalSingle = id === 'thermal' && singleSrc
               return (
-                <div key={id} className="project-card">
-                  <div className={`project-card__media${dualSrcs ? ' project-card__media--dual' : ''}`}>
+                <div key={id} className={`project-card${isThermalSingle ? ' project-card--thermal' : ''}`}>
+                  <div
+                    className={`project-card__media${dualSrcs ? ' project-card__media--dual' : ''}${
+                      isThermalSingle ? ' project-card__media--thermal-contain' : ''
+                    }`}
+                  >
                     <div className="project-card__media-inner">
                       {dualSrcs ? (
                         <div className="project-card__dual-frame">
@@ -352,8 +400,36 @@ function HomePage() {
                       <div className="project-card__img-hover" aria-hidden="true" />
                     </div>
                   </div>
-                  <h3>{t(titleKey)}</h3>
-                  <p>{t(descKey)}</p>
+                  <div className="project-card__body">
+                    <h3>{t(titleKey)}</h3>
+                    <p className="project-card__desc">{t(descKey)}</p>
+                    {descExtraKey ? (
+                      <p className="project-card__desc-extra">{t(descExtraKey)}</p>
+                    ) : null}
+                    {expanded ? (
+                      <>
+                        <details className="project-card__details">
+                          <summary className="project-card__details-summary">{t(expanded.moreKey)}</summary>
+                          <div className="project-card__details-inner">
+                            <p className="project-card__details-text">{t(expanded.bodyKey)}</p>
+                            {bulletsList ? (
+                              <ul className="project-card__details-bullets">
+                                {bulletsList.map((line, bi) => (
+                                  <li key={`${id}-eb-${bi}`}>{line}</li>
+                                ))}
+                              </ul>
+                            ) : null}
+                          </div>
+                        </details>
+                        <Link
+                          to={`${path('services')}#${t(expanded.linkAnchorKey)}`}
+                          className="project-card__link"
+                        >
+                          {t('home.learnMoreArrow')}
+                        </Link>
+                      </>
+                    ) : null}
+                  </div>
                 </div>
               )
             })}
