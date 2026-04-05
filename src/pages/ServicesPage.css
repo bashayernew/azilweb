@@ -74,24 +74,29 @@
 .service-detail__dual {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
-  min-height: 180px;
+  min-height: 0;
+  align-items: stretch;
 }
 
 .service-detail__dual-cell {
   position: relative;
   min-width: 0;
   min-height: 0;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  border-radius: var(--radius-md);
-  box-shadow: 0 1px 3px rgba(28, 25, 23, 0.1);
+  border-radius: 12px;
+  box-shadow: none;
+  background: #f1f5f9;
 }
 
 .service-detail__dual-cell .service-detail__img--dual {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  min-height: 140px;
+  min-height: 0;
   object-fit: cover;
   object-position: center;
   display: block;
@@ -109,6 +114,8 @@
 }
 
 .service-detail--basement-process .service-detail__dual-cell {
+  aspect-ratio: unset;
+  background: transparent;
   border-radius: 16px;
   box-shadow:
     0 8px 22px rgba(28, 25, 23, 0.1),
@@ -136,65 +143,60 @@
 }
 
 .service-detail--basement-process .service-detail__dual-cell .service-detail__img--dual {
+  position: relative;
+  inset: auto;
   width: 100%;
   height: 220px;
   min-height: 200px;
   max-height: 240px;
   object-fit: cover;
+  object-position: center;
 }
 
-/* Tanks detail: dual images, object-fit contain — full tank + ladder visible */
+/* Tanks detail: equal square tiles, object-fit cover, clean card frame */
 .service-detail__media--tanks.service-detail__media--dual {
-  max-width: 560px;
+  max-width: 520px;
   width: 100%;
-  background: linear-gradient(
-    165deg,
-    color-mix(in srgb, var(--color-bg-alt) 94%, white 6%) 0%,
-    color-mix(in srgb, var(--color-bg-card) 88%, var(--color-bg-alt) 12%) 100%
-  );
-  box-shadow:
-    0 12px 32px rgba(28, 25, 23, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .service-detail--tanks-contain .service-detail__dual-frame {
-  padding: clamp(10px, 2vw, 14px);
-  background: color-mix(in srgb, var(--color-bg-card) 88%, var(--color-bg-alt) 12%);
+  padding: 8px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  box-shadow:
+    0 4px 6px -1px rgba(15, 23, 42, 0.05),
+    0 14px 32px -10px rgba(15, 23, 42, 0.12);
 }
 
 .service-detail--tanks-contain .service-detail__dual--tanks {
-  gap: 14px;
+  gap: 12px;
   min-height: 0;
   align-items: stretch;
 }
 
 .service-detail--tanks-contain .service-detail__dual-cell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 4 / 3;
-  min-height: 220px;
-  max-height: min(300px, 36vw);
-  padding: clamp(12px, 2.5vw, 18px);
-  background: color-mix(in srgb, #f5f5f4 88%, var(--color-bg-alt) 12%);
-  border-radius: 16px;
-  border: 1px solid color-mix(in srgb, var(--color-border-light) 75%, transparent);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    0 6px 20px rgba(28, 25, 23, 0.07);
-  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  background: #f1f5f9;
+  border-radius: 12px;
+  border: none;
+  box-shadow: none;
 }
 
 .service-detail--tanks-contain .service-detail__dual-cell .service-detail__img--tanks-contain.service-detail__img--dual {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
   min-height: 0;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  flex-shrink: 1;
-  filter: brightness(1.02) contrast(1.03) saturate(1.02);
 }
 
 /* Bitumen rolls — single image, same asset as home thermal; full frame visible */
@@ -233,13 +235,11 @@
 @media (max-width: 767px) {
   .service-detail--tanks-contain .service-detail__dual--tanks {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 10px;
   }
 
   .service-detail--tanks-contain .service-detail__dual-cell {
-    max-height: none;
-    min-height: 200px;
-    aspect-ratio: 16 / 11;
+    aspect-ratio: 16 / 10;
   }
 }
 
@@ -261,14 +261,21 @@
 
   .service-detail__dual {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 8px;
-    min-height: 280px;
+    gap: 10px;
+    min-height: 0;
+  }
+
+  .service-detail__dual-cell {
+    aspect-ratio: 16 / 10;
   }
 
   .service-detail--basement-process .service-detail__dual--basement {
     min-height: 0;
     gap: 12px;
+  }
+
+  .service-detail--basement-process .service-detail__dual-cell {
+    aspect-ratio: unset;
   }
 
   .service-detail--basement-process .service-detail__dual-cell .service-detail__img--dual {
@@ -279,13 +286,12 @@
 
   .service-detail--tanks-contain .service-detail__dual--tanks {
     min-height: 0;
-    gap: 12px;
+    gap: 10px;
   }
 
   .service-detail--tanks-contain .service-detail__dual-cell {
-    min-height: 180px;
-    aspect-ratio: 4 / 3;
-    padding: 12px;
+    aspect-ratio: 16 / 10;
+    padding: 0;
   }
 }
 

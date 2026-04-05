@@ -39,6 +39,7 @@
     "heroVideoAria": "Showcase of insulation work and project execution",
     "heroBadge": "A Leading Kuwaiti Company Since 2012",
     "heroTitle": "Professional waterproofing, thermal & acoustic insulation solutions in Kuwait",
+    "heroNotice": "We have no other branches.",
     "heroSubtitle": "We provide waterproofing, thermal, and acoustic insulation services with high quality standards, supported by a skilled technical team and strong experience in the construction sector.",
     "requestInspection": "Request Inspection",
     "contactNow": "Contact Now",
@@ -81,7 +82,7 @@
     "waterproofingVisual": "Waterproofing",
     "waterproofingDesc": "Protecting buildings from moisture and leaks",
     "waterproofingDescExtra": "Cementitious waterproofing: a high-performance cementitious mix for basements, swimming pools, and below-grade walls—with strong chemical resistance.",
-    "thermal": "Thermal Insulation",
+    "thermal": "Bitumen roll (torch-on) insulation",
     "thermalVisual": "Thermal",
     "thermalDesc": "Professional insulation using bitumen rolls to protect buildings from water ingress and moisture.",
     "acoustic": "Acoustic Insulation",
@@ -127,8 +128,8 @@
         "anchor": "bitumen-insulation"
       },
       "pools": {
-        "title": "Swimming Pool & Garden Insulation",
-        "desc": "Professional insulation for swimming pools and gardens to prevent leaks and ensure continuous operation. We use specialized materials resistant to water and chlorine.",
+        "title": "Swimming Pool Insulation",
+        "desc": "Professional insulation for swimming pools to prevent leaks and ensure continuous operation. We use specialized materials resistant to water and chlorine.",
         "benefits": ["Leak prevention", "Chemical resistance", "Long lifespan", "Low maintenance"],
         "anchor": "pool-insulation"
       },
@@ -297,8 +298,8 @@
         ]
       },
       "pools": {
-        "title": "Swimming Pool & Garden Insulation",
-        "desc": "Professional insulation for swimming pools and gardens to prevent leaks and ensure continuous operation. We use specialized materials resistant to water and chlorine.",
+        "title": "Swimming Pool Insulation",
+        "desc": "Professional insulation for swimming pools to prevent leaks and ensure continuous operation. We use specialized materials resistant to water and chlorine.",
         "benefits": ["Leak prevention", "Chemical resistance", "Long lifespan", "Low maintenance"],
         "process": {
           "title": "Swimming pool construction stages",

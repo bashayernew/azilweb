@@ -5,7 +5,7 @@
 export const SERVICE_CARD_IMAGES = {
   basement: '/roof2.webp',
   foundations: '/gawa3dd.webp',
-  roofs: '/roof3.webp',
+  roofs: ['/roof5.webp', '/roof33.webp'],
   bitumen: '/azilharary.webp',
   pools: ['/pool33.webp', '/pool3.webp'],
   tanks: '/hadaik2.webp',

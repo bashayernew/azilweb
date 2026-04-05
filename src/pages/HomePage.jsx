@@ -113,6 +113,7 @@ function HomePage() {
               <h1 id="home-hero-title" className="hero__title">
                 {t('home.heroTitle')}
               </h1>
+              <p className="hero__notice">{t('home.heroNotice')}</p>
               <p className="hero__subtitle">{t('home.heroSubtitle')}</p>
               <div className="hero__ctas">
                 <a
