@@ -363,13 +363,14 @@ function HomePage() {
               const singleSrc = item.src
               const expandBullets = expanded ? t(expanded.bulletsKey) : null
               const bulletsList = Array.isArray(expandBullets) ? expandBullets : null
-              const isThermalSingle = id === 'thermal' && singleSrc
+              const isWaterproofingDual = id === 'waterproofing' && dualSrcs
               return (
-                <div key={id} className={`project-card${isThermalSingle ? ' project-card--thermal' : ''}`}>
+                <div
+                  key={id}
+                  className={`project-card${isWaterproofingDual ? ' project-card--dual-fullbleed' : ''}`}
+                >
                   <div
-                    className={`project-card__media${dualSrcs ? ' project-card__media--dual' : ''}${
-                      isThermalSingle ? ' project-card__media--thermal-contain' : ''
-                    }`}
+                    className={`project-card__media${dualSrcs ? ' project-card__media--dual' : ''}`}
                   >
                     <div className="project-card__media-inner">
                       {dualSrcs ? (
