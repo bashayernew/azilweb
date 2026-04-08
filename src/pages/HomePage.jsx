@@ -164,16 +164,12 @@ function HomePage() {
             <div className="about-preview__visual">
               <div className="about-preview__card">
                 <div className="about-preview__card-video-wrap">
-                  <video
+                  <img
                     className="about-preview__card-video"
-                    src={publicAsset('herosectionvid.mp4')}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    poster={publicAsset('roof2.webp')}
-                    aria-label={t('home.aboutCardTitle')}
+                    src={publicAsset('roof5.webp')}
+                    alt={t('home.aboutCardTitle')}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="about-preview__card-copy">

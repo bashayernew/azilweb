@@ -231,6 +231,11 @@
   object-position: center;
 }
 
+.about-preview__card-video-wrap .about-preview__card-video {
+  position: absolute;
+  inset: 0;
+}
+
 .about-preview__card-copy {
   padding: var(--space-8) var(--space-8) var(--space-10);
 }
